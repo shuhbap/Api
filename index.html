@@ -1,66 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tamooh</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TAMOOH</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 </head>
 <body>
 
+<!-- HERO -->
+
 <header class="hero">
+
   <nav>
+
     <div class="logo">
-      <img src="images/logo.jpg" alt="Tamooh Logo">
+      <img src="images/logo.jpg" alt="TAMOOH Logo">
     </div>
 
-    <a href="#product" class="btn">Explore</a>
+    <ul>
+      <li><a href="#product">Product</a></li>
+      <li><a href="#offer">Offer</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+
   </nav>
 
   <div class="hero-content">
-    <h1>Crafted To Leave An Impression.</h1>
-    <p>Minimal. Premium. Timeless.</p>
-    <a href="#product" class="main-btn">Shop Now</a>
+
+    <span class="premium-tag">
+      PREMIUM BIRIYANI EXPERIENCE
+    </span>
+
+    <h1>
+      Crafted To Leave <br>
+      An Impression.
+    </h1>
+
+    <p>
+      Luxury flavor with a premium modern identity.
+      Experience the authentic taste of TAMOOH.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#product" class="main-btn">
+        Order Now
+      </a>
+
+      <a href="#contact" class="outline-btn">
+        Contact Us
+      </a>
+
+    </div>
+
   </div>
+
 </header>
 
+<!-- PRODUCT -->
+
 <section id="product" class="section">
-  <h2>Featured Product</h2>
 
-  <div class="card">
-    <img src="images/poster.jpg" alt="Tamooh Poster" class="product-img">
+  <div class="section-title">
+    <span>FEATURED PRODUCT</span>
+    <h2>TAMOOH Signature</h2>
+  </div>
 
-    <div class="content">
-      <h3>Tamooh Signature</h3>
+  <div class="product-card">
+
+    <div class="product-image">
+      <img src="images/poster.jpg" alt="Poster">
+    </div>
+
+    <div class="product-content">
+
+      <h3>Biryani Masala Mix</h3>
+
       <p>
-        A premium modern lifestyle product designed with luxury aesthetics,
-        minimalist identity, and bold presence.
+        Premium crafted masala blend designed to deliver
+        rich aroma, authentic flavor, and unforgettable
+        biryani experience.
       </p>
 
-      <button>Order Now</button>
+      <div class="features">
+
+        <div class="feature">
+          ✔ Premium Quality
+        </div>
+
+        <div class="feature">
+          ✔ Authentic Taste
+        </div>
+
+        <div class="feature">
+          ✔ Rich Aroma
+        </div>
+
+      </div>
+
+      <button>
+        Order Product
+      </button>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="section dark">
-  <h2>Special Offer</h2>
+<!-- OFFER -->
 
-  <div class="offer-box">
-    <img src="images/offer.jpg" alt="Special Offer" class="offer-img">
+<section id="offer" class="offer-section">
+
+  <div class="offer-overlay">
+
+    <div class="offer-content">
+
+      <span>LIMITED OFFER</span>
+
+      <h2>
+        Experience Premium Flavor
+      </h2>
+
+      <p>
+        Get exclusive launch pricing for our signature
+        biryani masala mix.
+      </p>
+
+      <a href="#contact" class="main-btn">
+        Claim Offer
+      </a>
+
+    </div>
+
   </div>
+
 </section>
 
-<section class="section">
-  <h2>About</h2>
+<!-- ABOUT -->
 
-  <p class="about">
-    Tamooh was created for people who value style, presence,
-    and clean premium aesthetics.
+<section class="section about-section">
+
+  <div class="section-title">
+    <span>ABOUT TAMOOH</span>
+    <h2>Luxury In Every Taste</h2>
+  </div>
+
+  <p class="about-text">
+    TAMOOH was built for people who value premium identity,
+    modern presentation, authentic flavor, and luxury food
+    experience.
   </p>
+
 </section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="section contact-section">
+
+  <div class="section-title">
+    <span>CONNECT WITH US</span>
+    <h2>Contact TAMOOH</h2>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+      <i class="fa-brands fa-instagram"></i>
+      <h3>Instagram</h3>
+      <p>@tamooh_official</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fa-brands fa-whatsapp"></i>
+      <h3>WhatsApp</h3>
+      <p>+91 98765 43210</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fa-solid fa-envelope"></i>
+      <h3>Email</h3>
+      <p>hello@tamooh.com</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-  <p>© 2026 TAMOOH. All Rights Reserved.</p>
+
+  <img src="images/logo.jpg" alt="Logo">
+
+  <div class="social-icons">
+
+    <a href="#">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="#">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="#">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+  </div>
+
+  <p>
+    © 2026 TAMOOH. All Rights Reserved.
+  </p>
+
 </footer>
 
 </body>
