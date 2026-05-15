@@ -9,9 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
+
+/* RESET */
 
 *{
   margin:0;
@@ -21,110 +26,120 @@
 }
 
 body{
-  font-family:'Poppins',sans-serif;
-  background:#0c0c0c;
+  font-family:'Inter',sans-serif;
+  background:#0b0b0b;
   color:white;
   overflow-x:hidden;
+  transition:.4s;
 }
 
-/* BACKGROUND GLOW */
+/* LIGHT MODE */
 
-.bg-glow{
+body.light{
+  background:#f5f0e7;
+  color:#111;
+}
+
+/* LOADER */
+
+.loader{
   position:fixed;
-  width:700px;
-  height:700px;
-  background:radial-gradient(circle,
-  rgba(212,162,76,.18),
-  transparent 70%);
-
-  top:-250px;
-  right:-200px;
-
-  z-index:-1;
+  inset:0;
+  background:#0b0b0b;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+  transition:1s;
 }
 
-.bg-glow2{
+.loader.hide{
+  opacity:0;
+  pointer-events:none;
+}
+
+.loader h1{
+  font-size:80px;
+  color:#f0c06d;
+  letter-spacing:8px;
+  font-family:'Cormorant Garamond',serif;
+}
+
+/* CURSOR */
+
+.cursor{
+  width:22px;
+  height:22px;
+  border:2px solid #f0c06d;
+  border-radius:50%;
   position:fixed;
-  width:700px;
-  height:700px;
-
-  background:radial-gradient(circle,
-  rgba(255,255,255,.06),
-  transparent 70%);
-
-  bottom:-300px;
-  left:-250px;
-
-  z-index:-1;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:9999;
 }
 
-/* HERO */
+/* MOUSE GLOW */
 
-.hero{
-  min-height:100vh;
-
+.glow{
+  position:fixed;
+  width:300px;
+  height:300px;
   background:
-  linear-gradient(
-  135deg,
-  #0b0b0b,
-  #131313,
-  #1f1b16
-  );
+  radial-gradient(circle,
+  rgba(240,192,109,.18),
+  transparent 70%);
 
-  padding:30px 8% 100px;
-
-  position:relative;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:-1;
 }
 
 /* NAVBAR */
 
 nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+
+  width:88%;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
 
   padding:18px 30px;
 
-  background:rgba(255,255,255,.04);
+  background:rgba(255,255,255,.05);
 
   border:1px solid rgba(255,255,255,.08);
 
-  backdrop-filter:blur(18px);
+  backdrop-filter:blur(20px);
 
   border-radius:24px;
+
+  z-index:1000;
 }
 
 .logo img{
-  width:130px;
+  width:120px;
   border-radius:14px;
 }
 
-/* BUTTON */
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
 
-.nav-btn,
-.main-btn,
-.secondary-btn,
+/* BUTTONS */
+
+.btn,
 button{
-
   padding:15px 30px;
 
   border:none;
   border-radius:14px;
-
-  font-size:15px;
-  font-weight:600;
-
-  cursor:pointer;
-
-  transition:.35s;
-  text-decoration:none;
-}
-
-/* GOLD BUTTON */
-
-.nav-btn,
-.main-btn,
-button{
 
   background:
   linear-gradient(
@@ -135,54 +150,63 @@ button{
 
   color:white;
 
-  box-shadow:
-  0 10px 30px rgba(240,192,109,.25);
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.35s;
+
+  text-decoration:none;
 }
 
-.nav-btn:hover,
-.main-btn:hover,
+.btn:hover,
 button:hover{
   transform:translateY(-5px);
 }
 
-/* OUTLINE BUTTON */
+.toggle{
+  width:50px;
+  height:50px;
 
-.secondary-btn{
+  border-radius:50%;
 
-  background:rgba(255,255,255,.04);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
 
-  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.08);
 
-  color:white;
+  cursor:pointer;
 }
 
-.secondary-btn:hover{
-  background:white;
-  color:black;
-}
+/* HERO */
 
-/* HERO CONTENT */
+.hero{
+  min-height:100vh;
 
-.hero-content{
-  max-width:760px;
-  margin-top:140px;
+  background:
+  linear-gradient(
+  135deg,
+  #0c0c0c,
+  #151515,
+  #24180f
+  );
+
+  padding:180px 8% 120px;
 }
 
 .tag{
-
   display:inline-block;
 
   padding:12px 22px;
 
-  border-radius:50px;
+  border-radius:40px;
 
-  background:rgba(255,255,255,.04);
+  background:rgba(255,255,255,.05);
 
   border:1px solid rgba(255,255,255,.08);
-
-  backdrop-filter:blur(14px);
 
   margin-bottom:35px;
 
@@ -191,38 +215,30 @@ button:hover{
   font-size:13px;
 }
 
-.hero-content h1{
+.hero h1,
+.section-title h2,
+.offer-content h2,
+.testimonials h2{
+  font-family:'Cormorant Garamond',serif;
+}
 
-  font-size:92px;
-
+.hero h1{
+  font-size:95px;
   line-height:1;
-
-  margin-bottom:28px;
-
-  font-weight:800;
+  margin-bottom:30px;
 
   background:
-  linear-gradient(
-  to right,
-  #ffffff,
-  #f0c06d
-  );
+  linear-gradient(to right,#fff,#f0c06d);
 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-.hero-content p{
-
-  font-size:18px;
-
-  line-height:2;
-
-  color:#cfcfcf;
-
+.hero p{
   max-width:650px;
-
-  margin-bottom:45px;
+  line-height:2;
+  color:#d2d2d2;
+  margin-bottom:40px;
 }
 
 .hero-buttons{
@@ -242,130 +258,91 @@ button:hover{
 }
 
 .section-title span{
-
   color:#f0c06d;
-
   letter-spacing:2px;
-
   font-size:13px;
-
-  font-weight:700;
 }
 
 .section-title h2{
-
-  font-size:58px;
-
-  margin-top:18px;
-
-  font-weight:700;
+  font-size:60px;
+  margin-top:15px;
 }
 
-/* PRODUCT */
+/* PRODUCT CAROUSEL */
 
-.product-card{
+.carousel{
+  display:flex;
+  gap:30px;
+  overflow:auto;
+  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
+}
 
-  display:grid;
+.carousel::-webkit-scrollbar{
+  display:none;
+}
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(320px,1fr));
-
-  gap:60px;
-
-  align-items:center;
+.card{
+  min-width:350px;
 
   background:
-  linear-gradient(
-  145deg,
-  rgba(255,255,255,.05),
-  rgba(255,255,255,.02)
-  );
+  rgba(255,255,255,.05);
 
   border:1px solid rgba(255,255,255,.08);
 
-  backdrop-filter:blur(20px);
+  border-radius:30px;
 
-  border-radius:34px;
-
-  padding:45px;
-
-  box-shadow:
-  0 20px 60px rgba(0,0,0,.35);
-}
-
-.product-image img{
-
-  width:100%;
-
-  border-radius:28px;
+  padding:25px;
 
   transition:.4s;
+
+  scroll-snap-align:center;
+
+  transform-style:preserve-3d;
 }
 
-.product-image img:hover{
-  transform:scale(1.03);
+.card:hover{
+  transform:
+  rotateY(8deg)
+  rotateX(5deg)
+  translateY(-10px);
 }
 
-/* PRODUCT CONTENT */
+.card img{
+  width:100%;
+  border-radius:22px;
+  margin-bottom:25px;
+}
 
-.product-content h3{
+.card h3{
+  font-size:34px;
+  margin-bottom:15px;
+  font-family:'Cormorant Garamond',serif;
+}
 
-  font-size:50px;
-
+.card p{
+  color:#d1d1d1;
+  line-height:1.9;
   margin-bottom:20px;
 }
 
-.product-content p{
-
-  line-height:2;
-
-  color:#d2d2d2;
-
-  margin-bottom:35px;
-}
-
-/* FEATURES */
-
-.features{
-  display:grid;
-  gap:18px;
-  margin-bottom:40px;
-}
-
-.feature{
-
-  padding:18px 22px;
-
-  border-radius:16px;
-
-  background:rgba(255,255,255,.04);
-
-  border:1px solid rgba(255,255,255,.05);
-
-  color:#f3f3f3;
-}
-
-/* OFFER SECTION */
+/* OFFER */
 
 .offer-section{
-
   margin:0 8%;
 
   border-radius:40px;
 
-  padding:100px 50px;
+  padding:120px 40px;
 
   text-align:center;
 
   background:
   linear-gradient(
   135deg,
-  #151515,
-  #1c1c1c,
-  #2a1d10
+  #161616,
+  #24180f
   );
-
-  border:1px solid rgba(255,255,255,.06);
 
   position:relative;
 
@@ -373,17 +350,16 @@ button:hover{
 }
 
 .offer-section::before{
-
   content:'';
 
   position:absolute;
 
-  width:500px;
-  height:500px;
+  width:600px;
+  height:600px;
 
   background:
   radial-gradient(circle,
-  rgba(240,192,109,.16),
+  rgba(240,192,109,.18),
   transparent 70%);
 
   top:-250px;
@@ -395,74 +371,178 @@ button:hover{
   z-index:2;
 }
 
-.offer-content span{
-
-  color:#f0c06d;
-
-  letter-spacing:2px;
-
-  font-size:13px;
-
-  font-weight:700;
-}
-
 .offer-content h2{
-
   font-size:74px;
-
-  line-height:1.1;
-
-  margin:28px 0;
+  margin:25px 0;
 }
 
 .offer-content p{
-
   max-width:700px;
-
   margin:auto;
-
   line-height:2;
-
-  color:#d3d3d3;
-
-  margin-bottom:45px;
+  color:#d2d2d2;
+  margin-bottom:40px;
 }
 
-/* ABOUT */
+/* TESTIMONIALS */
 
-.about-section{
+.testimonials{
+  padding:120px 8%;
+}
+
+.testimonials h2{
+  text-align:center;
+  font-size:58px;
+  margin-bottom:70px;
+}
+
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:30px;
+}
+
+.testimonial{
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  padding:35px;
+
+  border-radius:24px;
+}
+
+.testimonial p{
+  line-height:2;
+  color:#d1d1d1;
+  margin-bottom:20px;
+}
+
+/* INSTAGRAM */
+
+.instagram-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:20px;
+}
+
+.instagram-grid img{
+  width:100%;
+  border-radius:20px;
+  transition:.4s;
+}
+
+.instagram-grid img:hover{
+  transform:scale(1.05);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.7);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  width:90%;
+  max-width:420px;
+
+  background:#161616;
+
+  padding:40px;
+
+  border-radius:28px;
+
   text-align:center;
 }
 
-.about-text{
+.modal-box h2{
+  margin-bottom:20px;
+}
 
-  max-width:900px;
+.modal-box input{
+  width:100%;
 
-  margin:auto;
+  padding:16px;
 
-  font-size:19px;
+  margin:10px 0;
 
-  line-height:2.3;
+  border:none;
+  border-radius:12px;
 
-  color:#d1d1d1;
+  background:#242424;
+  color:white;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+
+  right:25px;
+  bottom:25px;
+
+  width:65px;
+  height:65px;
+
+  border-radius:50%;
+
+  background:#25d366;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+
+  font-size:32px;
+
+  text-decoration:none;
+
+  z-index:999;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* FOOTER */
 
 footer{
-
   padding:90px 20px;
-
   text-align:center;
 }
 
 footer img{
-
   width:120px;
-
-  border-radius:18px;
-
-  margin-bottom:25px;
+  border-radius:16px;
+  margin-bottom:20px;
 }
 
 footer p{
@@ -473,145 +553,148 @@ footer p{
 
 @media(max-width:768px){
 
-  .hero-content h1{
-    font-size:52px;
-  }
+.hero h1{
+  font-size:54px;
+}
 
-  .hero-buttons{
-    flex-direction:column;
-  }
+.section-title h2,
+.testimonials h2{
+  font-size:40px;
+}
 
-  .section-title h2{
-    font-size:38px;
-  }
+.offer-content h2{
+  font-size:42px;
+}
 
-  .offer-content h2{
-    font-size:42px;
-  }
+.hero-buttons{
+  flex-direction:column;
+}
 
-  .product-content h3{
-    font-size:34px;
-  }
-
-  nav{
-    padding:14px 18px;
-  }
-
-  .logo img{
-    width:95px;
-  }
+.card{
+  min-width:290px;
+}
 
 }
 
 </style>
-
 </head>
+
 <body>
 
-<div class="bg-glow"></div>
-<div class="bg-glow2"></div>
+<!-- LOADER -->
 
-<!-- HERO -->
+<div class="loader">
+  <h1>TAMOOH</h1>
+</div>
 
-<header class="hero">
+<!-- CURSOR -->
+
+<div class="cursor"></div>
+
+<!-- GLOW -->
+
+<div class="glow"></div>
+
+<!-- NAVBAR -->
 
 <nav>
 
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Logo">
-  </div>
+<div class="logo">
+  <img src="images/logo.jpg">
+</div>
 
-  <a href="#product" class="nav-btn">
-    Explore
-  </a>
+<div class="nav-right">
+
+<div class="toggle" id="toggle">
+🌙
+</div>
+
+<a href="#product" class="btn">
+Explore
+</a>
+
+</div>
 
 </nav>
 
-<div class="hero-content">
+<!-- HERO -->
 
-  <span class="tag">
-    PREMIUM BIRIYANI EXPERIENCE
-  </span>
+<section class="hero reveal">
 
-  <h1>
-    Crafted To <br>
-    Leave An <br>
-    Impression.
-  </h1>
+<span class="tag">
+PREMIUM BIRIYANI EXPERIENCE
+</span>
 
-  <p>
-    Luxury flavor blended with modern elegance.
-    TAMOOH creates unforgettable premium food experiences
-    designed for people who value quality and identity.
-  </p>
+<h1>
+Crafted To <br>
+Leave An <br>
+Impression.
+</h1>
 
-  <div class="hero-buttons">
+<p>
+Luxury flavor blended with premium elegance.
+TAMOOH delivers unforgettable food experiences.
+</p>
 
-    <a href="#product" class="main-btn">
-      Order Now
-    </a>
+<div class="hero-buttons">
 
-    <a href="#offer" class="secondary-btn">
-      View Offer
-    </a>
+<button onclick="openModal()">
+Order Now
+</button>
 
-  </div>
+<a href="#offer" class="btn">
+View Offer
+</a>
 
 </div>
 
-</header>
+</section>
 
-<!-- PRODUCT -->
+<!-- PRODUCTS -->
 
-<section id="product" class="section">
+<section id="product" class="section reveal">
 
 <div class="section-title">
 
-  <span>FEATURED PRODUCT</span>
+<span>FEATURED PRODUCTS</span>
 
-  <h2>TAMOOH Signature</h2>
+<h2>TAMOOH Signature</h2>
 
 </div>
 
-<div class="product-card">
+<div class="carousel">
 
-  <div class="product-image">
+<div class="card">
 
-    <img src="images/poster.jpg" alt="Product">
+<img src="images/poster.jpg">
 
-  </div>
+<h3>Biryani Masala</h3>
 
-  <div class="product-content">
+<p>
+Premium spice blend with authentic luxury flavor.
+</p>
 
-    <h3>Biryani Masala Mix</h3>
+<button onclick="openModal()">
+Order Product
+</button>
 
-    <p>
-      Premium spice blend crafted for authentic biryani flavor,
-      rich aroma, and luxurious food presentation.
-      Designed to deliver a memorable taste experience.
-    </p>
+</div>
 
-    <div class="features">
+<div class="card">
 
-      <div class="feature">
-        ✔ Premium Quality Ingredients
-      </div>
+<img src="images/product.jpg">
 
-      <div class="feature">
-        ✔ Rich Authentic Aroma
-      </div>
+<h3>Premium Mix</h3>
 
-      <div class="feature">
-        ✔ Luxury Taste Experience
-      </div>
+<p>
+Rich aroma and unforgettable authentic experience.
+</p>
 
-    </div>
+<button onclick="openModal()">
+Order Product
+</button>
 
-    <button>
-      Order Product
-    </button>
-
-  </div>
+</div>
 
 </div>
 
@@ -619,53 +702,93 @@ footer p{
 
 <!-- OFFER -->
 
-<section id="offer" class="offer-section">
+<section id="offer"
+class="offer-section reveal">
 
 <div class="offer-content">
 
-  <span>LIMITED TIME OFFER</span>
+<span>LIMITED OFFER</span>
 
-  <h2>
-    Experience <br>
-    Premium Flavor
-  </h2>
+<h2>
+Experience Premium Flavor
+</h2>
 
-  <p>
-    Discover the richness of authentic biryani taste
-    with the elegance and luxury of TAMOOH Signature.
-  </p>
+<p>
+Luxury crafted taste with premium identity.
+</p>
 
-  <a href="#" class="main-btn">
-    Claim Offer
-  </a>
+<button onclick="openModal()">
+Claim Offer
+</button>
 
 </div>
 
 </section>
 
-<!-- ABOUT -->
+<!-- TESTIMONIALS -->
 
-<section class="section about-section">
+<section class="testimonials reveal">
 
-<div class="section-title">
+<h2>
+Loved By Customers
+</h2>
 
-  <span>ABOUT TAMOOH</span>
+<div class="testimonial-grid">
 
-  <h2>Luxury In Every Taste</h2>
+<div class="testimonial">
+
+<p>
+“Best premium masala experience I've tried.”
+</p>
+
+<h4>— Ameen</h4>
 
 </div>
 
-<p class="about-text">
+<div class="testimonial">
 
-  TAMOOH was built for people who appreciate
-  premium identity, modern aesthetics,
-  and unforgettable authentic flavor.
-
-  Every product is crafted to create
-  a luxurious experience that leaves
-  a lasting impression.
-
+<p>
+“Luxury packaging and amazing authentic flavor.”
 </p>
+
+<h4>— Farhan</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+“TAMOOH feels like an international brand.”
+</p>
+
+<h4>— Shamil</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INSTAGRAM -->
+
+<section class="section reveal">
+
+<div class="section-title">
+
+<span>INSTAGRAM</span>
+
+<h2>@tamooh_official</h2>
+
+</div>
+
+<div class="instagram-grid">
+
+<img src="images/poster.jpg">
+<img src="images/product.png">
+<img src="images/offer.jpg">
+<img src="images/poster.jpg">
+
+</div>
 
 </section>
 
@@ -673,13 +796,138 @@ footer p{
 
 <footer>
 
-<img src="images/logo.jpg" alt="Logo">
+<img src="images/logo.jpg">
 
 <p>
-  © 2026 TAMOOH. All Rights Reserved.
+© 2026 TAMOOH. All Rights Reserved.
 </p>
 
 </footer>
 
+<!-- WHATSAPP -->
+
+<a href="#"
+class="whatsapp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<h2>
+Order Product
+</h2>
+
+<input type="text"
+placeholder="Your Name">
+
+<input type="text"
+placeholder="Phone Number">
+
+<button>
+Place Order
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load",()=>{
+
+document.querySelector(".loader")
+.classList.add("hide");
+
+});
+
+/* CURSOR */
+
+const cursor=
+document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+
+});
+
+/* GLOW */
+
+const glow=
+document.querySelector(".glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+
+});
+
+/* REVEAL */
+
+const reveals=
+document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+
+reveals.forEach((el)=>{
+
+const top=
+el.getBoundingClientRect().top;
+
+if(top < window.innerHeight-100){
+
+el.classList.add("active");
+
+}
+
+});
+
+});
+
+/* MODAL */
+
+function openModal(){
+
+document.getElementById("modal")
+.classList.add("active");
+
+}
+
+window.onclick=(e)=>{
+
+const modal=
+document.getElementById("modal");
+
+if(e.target==modal){
+
+modal.classList.remove("active");
+
+}
+
+}
+
+/* DARK LIGHT */
+
+const toggle=
+document.getElementById("toggle");
+
+toggle.onclick=()=>{
+
+document.body.classList.toggle("light");
+
+}
+
+</script>
+
 </body>
-  </html>
+</html>
