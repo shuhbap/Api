@@ -4,781 +4,746 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TAMOOH Luxury</title>
+<title>TAMOOH — Luxury Experience</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* RESET */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:#070707;
-  color:white;
-  overflow-x:hidden;
-  cursor:none;
+
+background:#050505;
+color:white;
+
+font-family:'Outfit',sans-serif;
+
+overflow-x:hidden;
+cursor:none;
 }
 
 /* PREMIUM CURSOR */
 
 .cursor{
-  width:18px;
-  height:18px;
 
-  border-radius:50%;
+width:16px;
+height:16px;
 
-  background:#f0c06d;
+background:#f0c06d;
 
-  position:fixed;
+border-radius:50%;
 
-  transform:translate(-50%,-50%);
+position:fixed;
 
-  pointer-events:none;
+transform:translate(-50%,-50%);
 
-  z-index:99999;
+pointer-events:none;
 
-  mix-blend-mode:difference;
+z-index:999999;
 
-  transition:
-  width .2s,
-  height .2s,
-  transform .08s linear;
-}
+mix-blend-mode:screen;
 
-.cursor-grow{
-  width:70px;
-  height:70px;
-  background:rgba(240,192,109,.2);
-  backdrop-filter:blur(8px);
+box-shadow:
+0 0 20px #f0c06d,
+0 0 60px rgba(240,192,109,.6);
 }
 
 /* MOUSE GLOW */
 
 .glow{
-  position:fixed;
 
-  width:500px;
-  height:500px;
+position:fixed;
 
-  background:
-  radial-gradient(circle,
-  rgba(240,192,109,.13),
-  transparent 70%);
+width:700px;
+height:700px;
 
-  pointer-events:none;
+background:
+radial-gradient(circle,
+rgba(240,192,109,.10),
+transparent 70%);
 
-  transform:translate(-50%,-50%);
+pointer-events:none;
 
-  z-index:-1;
+transform:translate(-50%,-50%);
+
+z-index:-1;
 }
 
 /* LOADER */
 
 .loader{
-  position:fixed;
-  inset:0;
 
-  background:#050505;
+position:fixed;
+inset:0;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+background:#050505;
 
-  flex-direction:column;
+display:flex;
+justify-content:center;
+align-items:center;
 
-  z-index:999999;
-
-  overflow:hidden;
+z-index:999999;
+overflow:hidden;
 }
 
 .loader::before{
 
-  content:'';
+content:'';
 
-  position:absolute;
+position:absolute;
 
-  width:500px;
-  height:500px;
+width:900px;
+height:900px;
 
-  border-radius:50%;
+border-radius:50%;
 
-  background:
-  radial-gradient(circle,
-  rgba(240,192,109,.15),
-  transparent 70%);
+background:
+radial-gradient(circle,
+rgba(240,192,109,.15),
+transparent 70%);
 
-  animation:pulse 2s infinite;
+animation:pulse 3s infinite;
 }
 
 .loader h1{
 
-  font-size:110px;
+font-size:140px;
 
-  letter-spacing:14px;
+font-family:'Bodoni Moda',serif;
 
-  color:#f0c06d;
+letter-spacing:18px;
 
-  font-family:'Cormorant Garamond',serif;
+color:#f0c06d;
 
-  animation:fadeUp 1.5s ease;
-}
+position:relative;
 
-.loader p{
-  color:#aaa;
-  margin-top:10px;
-  letter-spacing:4px;
+animation:fade 2s ease;
 }
 
 .loader.hide{
-  opacity:0;
-  pointer-events:none;
-  transition:1s;
+
+opacity:0;
+pointer-events:none;
+
+transition:1s;
 }
 
 @keyframes pulse{
 
 0%{
-  transform:scale(.8);
-  opacity:.3;
+transform:scale(.8);
+opacity:.3;
 }
 
 50%{
-  transform:scale(1.1);
-  opacity:1;
+transform:scale(1.1);
+opacity:1;
 }
 
 100%{
-  transform:scale(.8);
-  opacity:.3;
+transform:scale(.8);
+opacity:.3;
 }
 
 }
 
-@keyframes fadeUp{
+@keyframes fade{
 
 from{
-  transform:translateY(40px);
-  opacity:0;
+opacity:0;
+transform:translateY(60px);
 }
 
 to{
-  transform:translateY(0);
-  opacity:1;
+opacity:1;
+transform:translateY(0);
 }
 
 }
 
-/* FLOATING GLASS NAVBAR */
+/* NAVBAR */
 
 nav{
 
-  position:fixed;
+position:fixed;
 
-  top:25px;
-  left:50%;
+top:25px;
+left:50%;
 
-  transform:translateX(-50%);
+transform:translateX(-50%);
 
-  width:90%;
+width:92%;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+padding:20px 35px;
 
-  padding:18px 35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-  background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.04);
 
-  border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
 
-  backdrop-filter:blur(18px);
+backdrop-filter:blur(18px);
 
-  border-radius:24px;
+border-radius:24px;
 
-  z-index:1000;
+z-index:9999;
 }
 
-.logo img{
-  width:120px;
-  border-radius:12px;
+.logo{
+
+font-size:30px;
+
+font-family:'Bodoni Moda',serif;
+
+letter-spacing:8px;
+
+color:#f0c06d;
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  gap:18px;
+
+display:flex;
+gap:16px;
 }
 
-/* BUTTONS */
+.nav-links a{
 
-.btn{
-  padding:15px 32px;
+text-decoration:none;
 
-  border-radius:14px;
+color:white;
 
-  background:
-  linear-gradient(
-  135deg,
-  #f0c06d,
-  #b6781d
-  );
+padding:15px 28px;
 
-  color:white;
+border-radius:14px;
 
-  text-decoration:none;
+font-size:14px;
 
-  font-weight:600;
+font-weight:600;
 
-  transition:.4s;
+background:
+linear-gradient(
+135deg,
+#f0c06d,
+#b6781d
+);
+
+transition:1s cubic-bezier(.19,1,.22,1);
 }
 
-.btn:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 40px rgba(240,192,109,.25);
+.nav-links a:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 20px 40px rgba(240,192,109,.2);
 }
 
 /* HERO */
 
 .hero{
 
-  min-height:100vh;
+min-height:100vh;
 
-  display:flex;
-  align-items:center;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  padding:0 8%;
+padding:0 8%;
 
-  position:relative;
+position:relative;
 
-  overflow:hidden;
+overflow:hidden;
 }
 
-/* PREMIUM BACKGROUND */
+/* BACKGROUND LIGHT */
 
 .hero::before{
 
-  content:'';
+content:'';
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+top:-300px;
+right:-200px;
 
-  background:
-  radial-gradient(circle at top right,
-  rgba(240,192,109,.12),
-  transparent 30%),
+width:800px;
+height:800px;
 
-  radial-gradient(circle at bottom left,
-  rgba(255,255,255,.05),
-  transparent 30%);
+border-radius:50%;
 
-}
-
-/* FLOATING BALL */
-
-.ball{
-
-  position:absolute;
-
-  width:500px;
-  height:500px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(circle,
-  rgba(240,192,109,.15),
-  transparent 70%);
-
-  top:-150px;
-  right:-120px;
-
-  animation:float 8s ease-in-out infinite;
-}
-
-@keyframes float{
-
-0%{
-  transform:translateY(0px);
-}
-
-50%{
-  transform:translateY(40px);
-}
-
-100%{
-  transform:translateY(0px);
-}
-
+background:
+radial-gradient(circle,
+rgba(240,192,109,.12),
+transparent 70%);
 }
 
 /* HERO CONTENT */
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:760px;
+
+max-width:760px;
+
+position:relative;
+z-index:2;
 }
 
-.tag{
+.hero-tag{
 
-  display:inline-block;
+display:inline-block;
 
-  padding:12px 24px;
+padding:12px 22px;
 
-  border-radius:40px;
+border-radius:40px;
 
-  background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.04);
 
-  border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
 
-  margin-bottom:35px;
+font-size:11px;
 
-  letter-spacing:3px;
+letter-spacing:4px;
 
-  font-size:12px;
-
-  animation:fadeUp 1.2s ease;
+margin-bottom:35px;
 }
 
 .hero h1{
 
-  font-size:110px;
+font-size:140px;
 
-  line-height:.95;
+line-height:.88;
 
-  margin-bottom:30px;
+font-family:'Bodoni Moda',serif;
 
-  font-family:'Cormorant Garamond',serif;
+margin-bottom:35px;
 
-  background:
-  linear-gradient(
-  to right,
-  #ffffff,
-  #f0c06d
-  );
+background:
+linear-gradient(
+to right,
+#ffffff,
+#f0c06d
+);
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  animation:fadeUp 1.5s ease;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
 
-  max-width:650px;
+max-width:620px;
 
-  line-height:2;
+line-height:2;
 
-  color:#cfcfcf;
+font-size:17px;
 
-  margin-bottom:45px;
+color:#d2d2d2;
 
-  animation:fadeUp 1.8s ease;
+margin-bottom:50px;
 }
 
+/* BUTTONS */
+
 .hero-buttons{
-  display:flex;
-  gap:20px;
-  animation:fadeUp 2s ease;
+
+display:flex;
+gap:20px;
+}
+
+.btn{
+
+padding:18px 40px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+font-size:14px;
+
+font-weight:700;
+
+transition:1s cubic-bezier(.19,1,.22,1);
+}
+
+.gold{
+
+background:
+linear-gradient(
+135deg,
+#f0c06d,
+#b6781d
+);
+
+color:white;
+}
+
+.glass{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+color:white;
+}
+
+.btn:hover{
+
+transform:translateY(-10px);
+}
+
+/* FLOATING PRODUCT */
+
+.hero-image{
+
+position:relative;
+z-index:2;
+}
+
+.hero-image img{
+
+width:540px;
+
+filter:
+drop-shadow(0 50px 80px rgba(0,0,0,.6));
+
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-30px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* STRIP */
+
+.strip{
+
+padding:45px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border-top:1px solid rgba(255,255,255,.06);
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.strip h3{
+
+font-size:14px;
+
+letter-spacing:4px;
+
+color:#f0c06d;
 }
 
 /* SECTION */
 
 .section{
-  padding:130px 8%;
+
+padding:180px 8%;
 }
 
 /* TITLE */
 
 .title{
-  text-align:center;
-  margin-bottom:80px;
+
+margin-bottom:90px;
 }
 
 .title span{
 
-  color:#f0c06d;
+font-size:12px;
 
-  letter-spacing:3px;
+letter-spacing:4px;
 
-  font-size:12px;
+color:#f0c06d;
 }
 
 .title h2{
 
-  font-size:70px;
+font-size:100px;
 
-  margin-top:15px;
+line-height:.95;
 
-  font-family:'Cormorant Garamond',serif;
+margin-top:18px;
+
+font-family:'Bodoni Moda',serif;
 }
 
-/* PRODUCT */
+/* STORY */
 
-.product-box{
+.story{
 
-  display:grid;
+display:grid;
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(340px,1fr));
+grid-template-columns:1fr 1fr;
 
-  gap:50px;
+gap:80px;
+
+align-items:center;
 }
 
-.card{
+.story-image{
 
-  background:
-  linear-gradient(
-  145deg,
-  rgba(255,255,255,.06),
-  rgba(255,255,255,.03)
-  );
-
-  border:1px solid rgba(255,255,255,.08);
-
-  backdrop-filter:blur(20px);
-
-  border-radius:34px;
-
-  padding:30px;
-
-  transition:.5s;
-
-  transform-style:preserve-3d;
+position:relative;
 }
 
-.card:hover{
+.story-image img{
 
-  transform:
-  rotateY(8deg)
-  rotateX(5deg)
-  translateY(-12px);
+width:100%;
+
+border-radius:30px;
+
+transition:1s cubic-bezier(.19,1,.22,1);
 }
 
-.card img{
+.story-image:hover img{
 
-  width:100%;
-
-  border-radius:24px;
-
-  margin-bottom:25px;
+transform:scale(1.03);
 }
 
-.card h3{
+.story-text p{
 
-  font-size:42px;
+font-size:18px;
 
-  margin-bottom:15px;
+line-height:2.3;
 
-  font-family:'Cormorant Garamond',serif;
+color:#d1d1d1;
+
+margin-bottom:30px;
 }
 
-.card p{
+/* FEATURES */
 
-  line-height:2;
+.features{
 
-  color:#d1d1d1;
+display:flex;
+flex-direction:column;
 
-  margin-bottom:25px;
+gap:50px;
 }
 
-/* OFFER */
+.feature{
 
-.offer{
-
-  margin:0 8%;
-
-  border-radius:40px;
-
-  padding:120px 40px;
-
-  text-align:center;
-
-  background:
-  linear-gradient(
-  135deg,
-  #131313,
-  #24180f
-  );
-
-  position:relative;
-
-  overflow:hidden;
+display:flex;
+gap:30px;
+align-items:flex-start;
 }
 
-.offer::before{
+.number{
 
-  content:'';
+font-size:90px;
 
-  position:absolute;
+font-family:'Bodoni Moda',serif;
 
-  width:700px;
-  height:700px;
-
-  background:
-  radial-gradient(circle,
-  rgba(240,192,109,.16),
-  transparent 70%);
-
-  top:-300px;
-  right:-200px;
+color:rgba(240,192,109,.18);
 }
 
-.offer-content{
-  position:relative;
-  z-index:2;
+.feature h3{
+
+font-size:42px;
+
+margin-bottom:12px;
+
+font-family:'Bodoni Moda',serif;
 }
 
-.offer h2{
+.feature p{
 
-  font-size:80px;
+color:#d2d2d2;
 
-  margin:25px 0;
-
-  font-family:'Cormorant Garamond',serif;
+line-height:2;
 }
 
-.offer p{
+/* PRODUCT SHOWCASE */
 
-  max-width:700px;
+.showcase{
 
-  margin:auto;
-
-  line-height:2;
-
-  color:#d2d2d2;
-
-  margin-bottom:40px;
+text-align:center;
+position:relative;
 }
 
-/* TESTIMONIAL */
+.showcase::before{
 
-.testimonial-grid{
+content:'';
 
-  display:grid;
+position:absolute;
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
+top:50%;
+left:50%;
 
-  gap:30px;
+transform:translate(-50%,-50%);
+
+width:700px;
+height:700px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(240,192,109,.10),
+transparent 70%);
 }
 
-.testimonial{
+.showcase img{
 
-  padding:35px;
+width:520px;
 
-  border-radius:28px;
+position:relative;
 
-  background:
-  rgba(255,255,255,.05);
+z-index:2;
 
-  border:1px solid rgba(255,255,255,.08);
-
-  transition:.4s;
+animation:float 6s ease-in-out infinite;
 }
 
-.testimonial:hover{
-  transform:translateY(-10px);
+.showcase h2{
+
+font-size:100px;
+
+margin-top:40px;
+
+font-family:'Bodoni Moda',serif;
 }
 
-.testimonial p{
-  line-height:2;
-  color:#d1d1d1;
-  margin-bottom:20px;
+.showcase p{
+
+max-width:700px;
+
+margin:30px auto;
+
+line-height:2.2;
+
+color:#d1d1d1;
 }
 
-/* INSTAGRAM */
+/* GALLERY */
 
-.instagram{
+.gallery{
 
-  display:grid;
+display:grid;
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:
+repeat(4,1fr);
 
-  gap:20px;
+gap:20px;
 }
 
-.instagram img{
+.gallery img{
 
-  width:100%;
+width:100%;
 
-  border-radius:22px;
+border-radius:24px;
 
-  transition:.5s;
+transition:1s cubic-bezier(.19,1,.22,1);
 }
 
-.instagram img:hover{
+.gallery img:hover{
 
-  transform:
-  scale(1.05)
-  rotate(1deg);
-}
-
-/* MODAL */
-
-.modal{
-
-  position:fixed;
-
-  inset:0;
-
-  background:rgba(0,0,0,.7);
-
-  display:none;
-
-  justify-content:center;
-  align-items:center;
-
-  z-index:99999;
-}
-
-.modal.active{
-  display:flex;
-}
-
-.modal-box{
-
-  width:90%;
-  max-width:430px;
-
-  background:
-  linear-gradient(
-  145deg,
-  #171717,
-  #0f0f0f
-  );
-
-  padding:40px;
-
-  border-radius:30px;
-
-  border:1px solid rgba(255,255,255,.08);
-
-  text-align:center;
-}
-
-.modal-box h2{
-  margin-bottom:25px;
-}
-
-.modal-box input{
-
-  width:100%;
-
-  padding:16px;
-
-  margin:10px 0;
-
-  border:none;
-
-  border-radius:14px;
-
-  background:#242424;
-
-  color:white;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-
-  position:fixed;
-
-  bottom:25px;
-  right:25px;
-
-  width:68px;
-  height:68px;
-
-  border-radius:50%;
-
-  background:#25d366;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  color:white;
-
-  font-size:32px;
-
-  text-decoration:none;
-
-  z-index:999;
-
-  box-shadow:
-  0 10px 30px rgba(37,211,102,.35);
-}
-
-/* REVEAL */
-
-.reveal{
-  opacity:0;
-  transform:translateY(80px);
-  transition:1.2s;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
+transform:
+translateY(-14px)
+scale(1.04);
 }
 
 /* FOOTER */
 
 footer{
-  padding:100px 20px;
-  text-align:center;
+
+padding:120px 20px;
+
+text-align:center;
+
+border-top:1px solid rgba(255,255,255,.06);
 }
 
-footer img{
-  width:120px;
-  border-radius:18px;
-  margin-bottom:25px;
+footer h2{
+
+font-size:58px;
+
+font-family:'Bodoni Moda',serif;
+
+margin-bottom:20px;
+
+color:#f0c06d;
 }
 
 footer p{
-  color:#888;
+color:#8f8f8f;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.hero h1{
-  font-size:58px;
+.hero{
+
+flex-direction:column;
+justify-content:center;
+
+padding-top:180px;
 }
 
-.title h2,
-.offer h2{
-  font-size:42px;
+.hero h1{
+font-size:62px;
+}
+
+.hero-image img{
+width:100%;
+margin-top:60px;
 }
 
 .hero-buttons{
-  flex-direction:column;
+flex-direction:column;
+}
+
+.title h2,
+.showcase h2{
+font-size:52px;
+}
+
+.story{
+grid-template-columns:1fr;
+}
+
+.gallery{
+grid-template-columns:1fr 1fr;
+}
+
+.strip{
+flex-direction:column;
+gap:20px;
 }
 
 nav{
-  padding:15px 20px;
+padding:15px 20px;
 }
 
-.logo img{
-  width:90px;
+.logo{
+font-size:20px;
 }
 
 }
@@ -802,8 +767,6 @@ nav{
 
 <h1>TAMOOH</h1>
 
-<p>LUXURY EXPERIENCE</p>
-
 </div>
 
 <!-- NAVBAR -->
@@ -811,19 +774,17 @@ nav{
 <nav>
 
 <div class="logo">
-
-<img src="images/logo.jpg">
-
+TAMOOH
 </div>
 
 <div class="nav-links">
 
-<a href="#products" class="btn">
+<a href="#">
 Products
 </a>
 
-<a href="#offer" class="btn">
-Offer
+<a href="#">
+Experience
 </a>
 
 </div>
@@ -834,34 +795,32 @@ Offer
 
 <section class="hero">
 
-<div class="ball"></div>
-
 <div class="hero-content">
 
-<div class="tag">
+<div class="hero-tag">
 PREMIUM BIRIYANI EXPERIENCE
 </div>
 
 <h1>
-Crafted To <br>
-Leave An <br>
-Impression.
+Crafted <br>
+For Luxury.
 </h1>
 
 <p>
-Luxury flavor blended with modern elegance.
-TAMOOH creates unforgettable premium food experiences
-designed for people who value identity and taste.
+
+An unforgettable premium flavor experience
+blended with authentic taste, modern elegance,
+and iconic presentation.
+
 </p>
 
 <div class="hero-buttons">
 
-<a href="#products" class="btn">
-Explore Products
+<a href="#" class="btn gold">
+Explore Menu
 </a>
 
-<a href="#offer" class="btn"
-onclick="openModal()">
+<a href="#" class="btn glass">
 Order Now
 </a>
 
@@ -869,134 +828,65 @@ Order Now
 
 </div>
 
-</section>
-
-<!-- PRODUCTS -->
-
-<section id="products"
-class="section reveal">
-
-<div class="title">
-
-<span>FEATURED PRODUCTS</span>
-
-<h2>TAMOOH Signature</h2>
-
-</div>
-
-<div class="product-box">
-
-<div class="card">
-
-<img src="images/poster.jpg">
-
-<h3>Biryani Masala</h3>
-
-<p>
-Premium spice blend with authentic rich aroma
-and luxury presentation.
-</p>
-
-<a href="#" class="btn"
-onclick="openModal()">
-Order Product
-</a>
-
-</div>
-
-<div class="card">
+<div class="hero-image">
 
 <img src="images/product.jpg">
 
-<h3>Premium Mix</h3>
-
-<p>
-Crafted for unforgettable premium flavor
-and elegant food experience.
-</p>
-
-<a href="#" class="btn"
-onclick="openModal()">
-Order Product
-</a>
-
-</div>
-
 </div>
 
 </section>
 
-<!-- OFFER -->
+<!-- STRIP -->
 
-<section id="offer"
-class="offer reveal">
+<section class="strip">
 
-<div class="offer-content">
+<h3>AUTHENTIC RECIPE</h3>
 
-<div class="tag">
-LIMITED TIME OFFER
-</div>
+<h3>PREMIUM INGREDIENTS</h3>
 
-<h2>
-Experience Premium Flavor
-</h2>
-
-<p>
-Discover luxury crafted taste with modern elegance
-and unforgettable authentic experience.
-</p>
-
-<a href="#"
-class="btn"
-onclick="openModal()">
-Claim Offer
-</a>
-
-</div>
+<h3>LUXURY EXPERIENCE</h3>
 
 </section>
 
-<!-- TESTIMONIAL -->
+<!-- STORY -->
 
-<section class="section reveal">
+<section class="section">
 
 <div class="title">
 
-<span>TESTIMONIALS</span>
+<span>THE STORY</span>
 
-<h2>Loved By Customers</h2>
-
-</div>
-
-<div class="testimonial-grid">
-
-<div class="testimonial">
-
-<p>
-“Best premium masala experience I've tried.”
-</p>
-
-<h4>— Ameen</h4>
+<h2>
+Taste Meets Identity
+</h2>
 
 </div>
 
-<div class="testimonial">
+<div class="story">
 
-<p>
-“Luxury packaging and amazing authentic flavor.”
-</p>
+<div class="story-image">
 
-<h4>— Farhan</h4>
+<img src="images/poster.jpg">
 
 </div>
 
-<div class="testimonial">
+<div class="story-text">
 
 <p>
-“TAMOOH feels like an international brand.”
+
+TAMOOH was created to redefine premium food experiences.
+
+Every ingredient, every aroma, and every presentation
+is designed to leave a lasting impression.
+
 </p>
 
-<h4>— Shamil</h4>
+<p>
+
+Inspired by luxury hospitality and authentic flavor,
+TAMOOH blends elegance with unforgettable taste.
+
+</p>
 
 </div>
 
@@ -1004,19 +894,118 @@ Claim Offer
 
 </section>
 
-<!-- INSTAGRAM -->
+<!-- FEATURES -->
 
-<section class="section reveal">
+<section class="section">
+
+<div class="title">
+
+<span>WHY TAMOOH</span>
+
+<h2>
+Luxury In Every Detail
+</h2>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+
+<div class="number">
+01
+</div>
+
+<div>
+
+<h3>Rich Aroma</h3>
+
+<p>
+Premium spice blend crafted for unforgettable flavor.
+</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="number">
+02
+</div>
+
+<div>
+
+<h3>Modern Identity</h3>
+
+<p>
+Minimal luxury branding inspired by global premium brands.
+</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="number">
+03
+</div>
+
+<div>
+
+<h3>Elegant Packaging</h3>
+
+<p>
+Luxury presentation designed to elevate the experience.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SHOWCASE -->
+
+<section class="section showcase">
+
+<img src="images/product.jpg">
+
+<h2>
+The Signature Experience
+</h2>
+
+<p>
+
+Crafted for people who appreciate premium quality,
+modern aesthetics, and unforgettable authentic flavor.
+
+</p>
+
+<a href="#" class="btn gold">
+Order Product
+</a>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section">
 
 <div class="title">
 
 <span>INSTAGRAM</span>
 
-<h2>@tamooh_official</h2>
+<h2>
+@tamooh_official
+</h2>
 
 </div>
 
-<div class="instagram">
+<div class="gallery">
 
 <img src="images/poster.jpg">
 <img src="images/product.jpg">
@@ -1031,49 +1020,15 @@ Claim Offer
 
 <footer>
 
-<img src="images/logo.jpg">
+<h2>
+TAMOOH
+</h2>
 
 <p>
 © 2026 TAMOOH. All Rights Reserved.
 </p>
 
 </footer>
-
-<!-- WHATSAPP -->
-
-<a href="#"
-class="whatsapp">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
-<!-- ORDER MODAL -->
-
-<div class="modal"
-id="modal">
-
-<div class="modal-box">
-
-<h2>
-Order Product
-</h2>
-
-<input type="text"
-placeholder="Your Name">
-
-<input type="text"
-placeholder="Phone Number">
-
-<a href="#"
-class="btn"
-style="display:block;margin-top:15px;">
-Place Order
-</a>
-
-</div>
-
-</div>
 
 <script>
 
@@ -1086,13 +1041,13 @@ setTimeout(()=>{
 document.querySelector(".loader")
 .classList.add("hide");
 
-},2000);
+},2200);
 
 });
 
-/* PREMIUM CURSOR */
+/* CURSOR */
 
-const cursor=
+const cursor =
 document.querySelector(".cursor");
 
 document.addEventListener("mousemove",(e)=>{
@@ -1102,28 +1057,9 @@ cursor.style.top=e.clientY+"px";
 
 });
 
-/* CURSOR HOVER */
-
-document.querySelectorAll("a,button")
-.forEach((el)=>{
-
-el.addEventListener("mouseenter",()=>{
-
-cursor.classList.add("cursor-grow");
-
-});
-
-el.addEventListener("mouseleave",()=>{
-
-cursor.classList.remove("cursor-grow");
-
-});
-
-});
-
 /* GLOW */
 
-const glow=
+const glow =
 document.querySelector(".glow");
 
 document.addEventListener("mousemove",(e)=>{
@@ -1132,50 +1068,6 @@ glow.style.left=e.clientX+"px";
 glow.style.top=e.clientY+"px";
 
 });
-
-/* REVEAL */
-
-const reveals=
-document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll",()=>{
-
-reveals.forEach((el)=>{
-
-const top=
-el.getBoundingClientRect().top;
-
-if(top < window.innerHeight-120){
-
-el.classList.add("active");
-
-}
-
-});
-
-});
-
-/* MODAL */
-
-function openModal(){
-
-document.getElementById("modal")
-.classList.add("active");
-
-}
-
-window.onclick=(e)=>{
-
-const modal=
-document.getElementById("modal");
-
-if(e.target==modal){
-
-modal.classList.remove("active");
-
-}
-
-}
 
 </script>
 
