@@ -1,71 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TAMOOH</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>TAMOOH</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0c0c0c;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+.bg-glow{
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,
+  rgba(212,162,76,.18),
+  transparent 70%);
+
+  top:-250px;
+  right:-200px;
+
+  z-index:-1;
+}
+
+.bg-glow2{
+  position:fixed;
+  width:700px;
+  height:700px;
+
+  background:radial-gradient(circle,
+  rgba(255,255,255,.06),
+  transparent 70%);
+
+  bottom:-300px;
+  left:-250px;
+
+  z-index:-1;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+
+  background:
+  linear-gradient(
+  135deg,
+  #0b0b0b,
+  #131313,
+  #1f1b16
+  );
+
+  padding:30px 8% 100px;
+
+  position:relative;
+}
+
+/* NAVBAR */
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:18px 30px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(18px);
+
+  border-radius:24px;
+}
+
+.logo img{
+  width:130px;
+  border-radius:14px;
+}
+
+/* BUTTON */
+
+.nav-btn,
+.main-btn,
+.secondary-btn,
+button{
+
+  padding:15px 30px;
+
+  border:none;
+  border-radius:14px;
+
+  font-size:15px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.35s;
+  text-decoration:none;
+}
+
+/* GOLD BUTTON */
+
+.nav-btn,
+.main-btn,
+button{
+
+  background:
+  linear-gradient(
+  135deg,
+  #f0c06d,
+  #b6781d
+  );
+
+  color:white;
+
+  box-shadow:
+  0 10px 30px rgba(240,192,109,.25);
+}
+
+.nav-btn:hover,
+.main-btn:hover,
+button:hover{
+  transform:translateY(-5px);
+}
+
+/* OUTLINE BUTTON */
+
+.secondary-btn{
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(14px);
+
+  color:white;
+}
+
+.secondary-btn:hover{
+  background:white;
+  color:black;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+  max-width:760px;
+  margin-top:140px;
+}
+
+.tag{
+
+  display:inline-block;
+
+  padding:12px 22px;
+
+  border-radius:50px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(14px);
+
+  margin-bottom:35px;
+
+  letter-spacing:2px;
+
+  font-size:13px;
+}
+
+.hero-content h1{
+
+  font-size:92px;
+
+  line-height:1;
+
+  margin-bottom:28px;
+
+  font-weight:800;
+
+  background:
+  linear-gradient(
+  to right,
+  #ffffff,
+  #f0c06d
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+
+  font-size:18px;
+
+  line-height:2;
+
+  color:#cfcfcf;
+
+  max-width:650px;
+
+  margin-bottom:45px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:20px;
+}
+
+/* SECTION */
+
+.section{
+  padding:120px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.section-title span{
+
+  color:#f0c06d;
+
+  letter-spacing:2px;
+
+  font-size:13px;
+
+  font-weight:700;
+}
+
+.section-title h2{
+
+  font-size:58px;
+
+  margin-top:18px;
+
+  font-weight:700;
+}
+
+/* PRODUCT */
+
+.product-card{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:60px;
+
+  align-items:center;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(255,255,255,.05),
+  rgba(255,255,255,.02)
+  );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(20px);
+
+  border-radius:34px;
+
+  padding:45px;
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.35);
+}
+
+.product-image img{
+
+  width:100%;
+
+  border-radius:28px;
+
+  transition:.4s;
+}
+
+.product-image img:hover{
+  transform:scale(1.03);
+}
+
+/* PRODUCT CONTENT */
+
+.product-content h3{
+
+  font-size:50px;
+
+  margin-bottom:20px;
+}
+
+.product-content p{
+
+  line-height:2;
+
+  color:#d2d2d2;
+
+  margin-bottom:35px;
+}
+
+/* FEATURES */
+
+.features{
+  display:grid;
+  gap:18px;
+  margin-bottom:40px;
+}
+
+.feature{
+
+  padding:18px 22px;
+
+  border-radius:16px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.05);
+
+  color:#f3f3f3;
+}
+
+/* OFFER SECTION */
+
+.offer-section{
+
+  margin:0 8%;
+
+  border-radius:40px;
+
+  padding:100px 50px;
+
+  text-align:center;
+
+  background:
+  linear-gradient(
+  135deg,
+  #151515,
+  #1c1c1c,
+  #2a1d10
+  );
+
+  border:1px solid rgba(255,255,255,.06);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.offer-section::before{
+
+  content:'';
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  background:
+  radial-gradient(circle,
+  rgba(240,192,109,.16),
+  transparent 70%);
+
+  top:-250px;
+  right:-100px;
+}
+
+.offer-content{
+  position:relative;
+  z-index:2;
+}
+
+.offer-content span{
+
+  color:#f0c06d;
+
+  letter-spacing:2px;
+
+  font-size:13px;
+
+  font-weight:700;
+}
+
+.offer-content h2{
+
+  font-size:74px;
+
+  line-height:1.1;
+
+  margin:28px 0;
+}
+
+.offer-content p{
+
+  max-width:700px;
+
+  margin:auto;
+
+  line-height:2;
+
+  color:#d3d3d3;
+
+  margin-bottom:45px;
+}
+
+/* ABOUT */
+
+.about-section{
+  text-align:center;
+}
+
+.about-text{
+
+  max-width:900px;
+
+  margin:auto;
+
+  font-size:19px;
+
+  line-height:2.3;
+
+  color:#d1d1d1;
+}
+
+/* FOOTER */
+
+footer{
+
+  padding:90px 20px;
+
+  text-align:center;
+}
+
+footer img{
+
+  width:120px;
+
+  border-radius:18px;
+
+  margin-bottom:25px;
+}
+
+footer p{
+  color:#8f8f8f;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero-content h1{
+    font-size:52px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .section-title h2{
+    font-size:38px;
+  }
+
+  .offer-content h2{
+    font-size:42px;
+  }
+
+  .product-content h3{
+    font-size:34px;
+  }
+
+  nav{
+    padding:14px 18px;
+  }
+
+  .logo img{
+    width:95px;
+  }
+
+}
+
+</style>
 
 </head>
 <body>
+
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
 
 <!-- HERO -->
 
 <header class="hero">
 
-  <nav>
+<nav>
 
-    <div class="logo">
-      <img src="images/logo.jpg" alt="TAMOOH Logo">
-    </div>
+  <div class="logo">
+    <img src="images/logo.jpg" alt="Logo">
+  </div>
 
-    <ul>
-      <li><a href="#product">Product</a></li>
-      <li><a href="#offer">Offer</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#">Instagram</a></li>
-    </ul>
+  <a href="#product" class="nav-btn">
+    Explore
+  </a>
 
-  </nav>
+</nav>
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <span class="premium-tag">
-      PREMIUM BIRIYANI EXPERIENCE
-    </span>
+  <span class="tag">
+    PREMIUM BIRIYANI EXPERIENCE
+  </span>
 
-    <h1>
-      Crafted To Leave <br>
-      An Impression.
-    </h1>
+  <h1>
+    Crafted To <br>
+    Leave An <br>
+    Impression.
+  </h1>
 
-    <p>
-      Luxury flavor with a premium modern identity.
-      Experience the authentic taste of TAMOOH.
-    </p>
+  <p>
+    Luxury flavor blended with modern elegance.
+    TAMOOH creates unforgettable premium food experiences
+    designed for people who value quality and identity.
+  </p>
 
-    <div class="hero-buttons">
+  <div class="hero-buttons">
 
-      <a href="#product" class="main-btn">
-        Order Now
-      </a>
+    <a href="#product" class="main-btn">
+      Order Now
+    </a>
 
-      <a href="#contact" class="outline-btn">
-        Contact Us
-      </a>
-
-    </div>
+    <a href="#offer" class="secondary-btn">
+      View Offer
+    </a>
 
   </div>
+
+</div>
 
 </header>
 
@@ -73,50 +565,55 @@
 
 <section id="product" class="section">
 
-  <div class="section-title">
-    <span>FEATURED PRODUCT</span>
-    <h2>TAMOOH Signature</h2>
+<div class="section-title">
+
+  <span>FEATURED PRODUCT</span>
+
+  <h2>TAMOOH Signature</h2>
+
+</div>
+
+<div class="product-card">
+
+  <div class="product-image">
+
+    <img src="images/poster.jpg" alt="Product">
+
   </div>
 
-  <div class="product-card">
+  <div class="product-content">
 
-    <div class="product-image">
-      <img src="images/poster.jpg" alt="Poster">
-    </div>
+    <h3>Biryani Masala Mix</h3>
 
-    <div class="product-content">
+    <p>
+      Premium spice blend crafted for authentic biryani flavor,
+      rich aroma, and luxurious food presentation.
+      Designed to deliver a memorable taste experience.
+    </p>
 
-      <h3>Biryani Masala Mix</h3>
+    <div class="features">
 
-      <p>
-        Premium crafted masala blend designed to deliver
-        rich aroma, authentic flavor, and unforgettable
-        biryani experience.
-      </p>
-
-      <div class="features">
-
-        <div class="feature">
-          ✔ Premium Quality
-        </div>
-
-        <div class="feature">
-          ✔ Authentic Taste
-        </div>
-
-        <div class="feature">
-          ✔ Rich Aroma
-        </div>
-
+      <div class="feature">
+        ✔ Premium Quality Ingredients
       </div>
 
-      <button>
-        Order Product
-      </button>
+      <div class="feature">
+        ✔ Rich Authentic Aroma
+      </div>
+
+      <div class="feature">
+        ✔ Luxury Taste Experience
+      </div>
 
     </div>
 
+    <button>
+      Order Product
+    </button>
+
   </div>
+
+</div>
 
 </section>
 
@@ -124,28 +621,25 @@
 
 <section id="offer" class="offer-section">
 
-  <div class="offer-overlay">
+<div class="offer-content">
 
-    <div class="offer-content">
+  <span>LIMITED TIME OFFER</span>
 
-      <span>LIMITED OFFER</span>
+  <h2>
+    Experience <br>
+    Premium Flavor
+  </h2>
 
-      <h2>
-        Experience Premium Flavor
-      </h2>
+  <p>
+    Discover the richness of authentic biryani taste
+    with the elegance and luxury of TAMOOH Signature.
+  </p>
 
-      <p>
-        Get exclusive launch pricing for our signature
-        biryani masala mix.
-      </p>
+  <a href="#" class="main-btn">
+    Claim Offer
+  </a>
 
-      <a href="#contact" class="main-btn">
-        Claim Offer
-      </a>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
@@ -153,49 +647,25 @@
 
 <section class="section about-section">
 
-  <div class="section-title">
-    <span>ABOUT TAMOOH</span>
-    <h2>Luxury In Every Taste</h2>
-  </div>
+<div class="section-title">
 
-  <p class="about-text">
-    TAMOOH was built for people who value premium identity,
-    modern presentation, authentic flavor, and luxury food
-    experience.
-  </p>
+  <span>ABOUT TAMOOH</span>
 
-</section>
+  <h2>Luxury In Every Taste</h2>
 
-<!-- CONTACT -->
+</div>
 
-<section id="contact" class="section contact-section">
+<p class="about-text">
 
-  <div class="section-title">
-    <span>CONNECT WITH US</span>
-    <h2>Contact TAMOOH</h2>
-  </div>
+  TAMOOH was built for people who appreciate
+  premium identity, modern aesthetics,
+  and unforgettable authentic flavor.
 
-  <div class="contact-grid">
+  Every product is crafted to create
+  a luxurious experience that leaves
+  a lasting impression.
 
-    <div class="contact-card">
-      <i class="fa-brands fa-instagram"></i>
-      <h3>Instagram</h3>
-      <p>@tamooh_official</p>
-    </div>
-
-    <div class="contact-card">
-      <i class="fa-brands fa-whatsapp"></i>
-      <h3>WhatsApp</h3>
-      <p>+91 98765 43210</p>
-    </div>
-
-    <div class="contact-card">
-      <i class="fa-solid fa-envelope"></i>
-      <h3>Email</h3>
-      <p>hello@tamooh.com</p>
-    </div>
-
-  </div>
+</p>
 
 </section>
 
@@ -203,29 +673,13 @@
 
 <footer>
 
-  <img src="images/logo.jpg" alt="Logo">
+<img src="images/logo.jpg" alt="Logo">
 
-  <div class="social-icons">
-
-    <a href="#">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="#">
-      <i class="fa-brands fa-facebook-f"></i>
-    </a>
-
-    <a href="#">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-  </div>
-
-  <p>
-    © 2026 TAMOOH. All Rights Reserved.
-  </p>
+<p>
+  © 2026 TAMOOH. All Rights Reserved.
+</p>
 
 </footer>
 
 </body>
-</html>
+  </html>
