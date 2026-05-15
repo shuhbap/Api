@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TAMOOH — Luxury Experience</title>
+<title>TAMOOH — Crafted In Shadow</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -27,41 +27,59 @@ body{
 background:#050505;
 color:white;
 
-font-family:'Outfit',sans-serif;
+font-family:'Inter',sans-serif;
 
 overflow-x:hidden;
 cursor:none;
 }
 
-/* PREMIUM CURSOR */
+/* CURSOR */
 
 .cursor{
 
-width:16px;
-height:16px;
+width:14px;
+height:14px;
 
-background:#f0c06d;
+background:#d9a441;
 
 border-radius:50%;
 
 position:fixed;
 
-transform:translate(-50%,-50%);
-
 pointer-events:none;
+
+transform:translate(-50%,-50%);
 
 z-index:999999;
 
 mix-blend-mode:screen;
 
 box-shadow:
-0 0 20px #f0c06d,
-0 0 60px rgba(240,192,109,.6);
+0 0 30px rgba(217,164,65,.8),
+0 0 80px rgba(217,164,65,.4);
 }
 
-/* MOUSE GLOW */
+/* BACKGROUND GLOW */
 
-.glow{
+.bg-light{
+
+position:fixed;
+
+width:900px;
+height:900px;
+
+background:
+radial-gradient(circle,
+rgba(217,164,65,.10),
+transparent 70%);
+
+top:-300px;
+right:-300px;
+
+z-index:-2;
+}
+
+.bg-light2{
 
 position:fixed;
 
@@ -70,14 +88,33 @@ height:700px;
 
 background:
 radial-gradient(circle,
-rgba(240,192,109,.10),
+rgba(255,255,255,.05),
 transparent 70%);
+
+bottom:-300px;
+left:-300px;
+
+z-index:-2;
+}
+
+/* NOISE */
+
+body::before{
+
+content:'';
+
+position:fixed;
+
+inset:0;
+
+opacity:.035;
+
+background-image:
+url("https://grainy-gradients.vercel.app/noise.svg");
 
 pointer-events:none;
 
-transform:translate(-50%,-50%);
-
-z-index:-1;
+z-index:999;
 }
 
 /* LOADER */
@@ -97,38 +134,17 @@ z-index:999999;
 overflow:hidden;
 }
 
-.loader::before{
-
-content:'';
-
-position:absolute;
-
-width:900px;
-height:900px;
-
-border-radius:50%;
-
-background:
-radial-gradient(circle,
-rgba(240,192,109,.15),
-transparent 70%);
-
-animation:pulse 3s infinite;
-}
-
 .loader h1{
 
-font-size:140px;
+font-size:160px;
 
-font-family:'Bodoni Moda',serif;
+font-family:'Six Caps',sans-serif;
 
-letter-spacing:18px;
+letter-spacing:12px;
 
-color:#f0c06d;
+color:#d9a441;
 
-position:relative;
-
-animation:fade 2s ease;
+animation:loader 2s ease;
 }
 
 .loader.hide{
@@ -139,40 +155,23 @@ pointer-events:none;
 transition:1s;
 }
 
-@keyframes pulse{
+@keyframes loader{
 
 0%{
-transform:scale(.8);
-opacity:.3;
-}
-
-50%{
-transform:scale(1.1);
-opacity:1;
+opacity:0;
+letter-spacing:40px;
+transform:scale(1.2);
 }
 
 100%{
-transform:scale(.8);
-opacity:.3;
-}
-
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translateY(60px);
-}
-
-to{
 opacity:1;
-transform:translateY(0);
+letter-spacing:12px;
+transform:scale(1);
 }
 
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
 
@@ -191,9 +190,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.03);
 
-border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.07);
 
 backdrop-filter:blur(18px);
 
@@ -204,51 +203,47 @@ z-index:9999;
 
 .logo{
 
-font-size:30px;
+font-size:32px;
 
-font-family:'Bodoni Moda',serif;
+font-family:'Six Caps',sans-serif;
 
-letter-spacing:8px;
+letter-spacing:6px;
 
-color:#f0c06d;
+color:#d9a441;
 }
 
-.nav-links{
+.nav-right{
 
 display:flex;
 gap:16px;
 }
 
-.nav-links a{
+.nav-right a{
 
 text-decoration:none;
 
 color:white;
 
-padding:15px 28px;
+font-size:13px;
+
+letter-spacing:2px;
+
+padding:14px 26px;
 
 border-radius:14px;
 
-font-size:14px;
+background:rgba(255,255,255,.05);
 
-font-weight:600;
-
-background:
-linear-gradient(
-135deg,
-#f0c06d,
-#b6781d
-);
+border:1px solid rgba(255,255,255,.08);
 
 transition:1s cubic-bezier(.19,1,.22,1);
 }
 
-.nav-links a:hover{
+.nav-right a:hover{
 
 transform:translateY(-8px);
 
-box-shadow:
-0 20px 40px rgba(240,192,109,.2);
+background:#d9a441;
 }
 
 /* HERO */
@@ -257,167 +252,137 @@ box-shadow:
 
 min-height:100vh;
 
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:0 8%;
+padding:160px 7% 100px;
 
 position:relative;
 
-overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
 }
 
-/* BACKGROUND LIGHT */
+/* HUGE TEXT */
 
-.hero::before{
+.hero-left{
+
+flex:1;
+position:relative;
+z-index:2;
+}
+
+.mini{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+color:#d9a441;
+
+margin-bottom:30px;
+}
+
+.hero-left h1{
+
+font-size:210px;
+
+line-height:.8;
+
+font-family:'Six Caps',sans-serif;
+
+font-weight:400;
+
+letter-spacing:4px;
+
+margin-bottom:35px;
+
+color:white;
+}
+
+.hero-left p{
+
+max-width:520px;
+
+line-height:2.1;
+
+color:#bdbdbd;
+
+margin-bottom:45px;
+
+font-size:15px;
+}
+
+/* BUTTON */
+
+.btn{
+
+display:inline-flex;
+align-items:center;
+gap:14px;
+
+padding:18px 34px;
+
+border-radius:18px;
+
+background:#d9a441;
+
+color:black;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:1s cubic-bezier(.19,1,.22,1);
+}
+
+.btn:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 20px 60px rgba(217,164,65,.35);
+}
+
+/* HERO IMAGE */
+
+.hero-right{
+
+flex:1;
+
+display:flex;
+justify-content:center;
+
+position:relative;
+}
+
+.hero-right::before{
 
 content:'';
 
 position:absolute;
 
-top:-300px;
-right:-200px;
-
-width:800px;
-height:800px;
-
-border-radius:50%;
+width:600px;
+height:600px;
 
 background:
 radial-gradient(circle,
-rgba(240,192,109,.12),
+rgba(217,164,65,.18),
 transparent 70%);
+
+filter:blur(40px);
 }
 
-/* HERO CONTENT */
+.hero-right img{
 
-.hero-content{
-
-max-width:760px;
+width:520px;
 
 position:relative;
 z-index:2;
-}
-
-.hero-tag{
-
-display:inline-block;
-
-padding:12px 22px;
-
-border-radius:40px;
-
-background:rgba(255,255,255,.04);
-
-border:1px solid rgba(255,255,255,.08);
-
-font-size:11px;
-
-letter-spacing:4px;
-
-margin-bottom:35px;
-}
-
-.hero h1{
-
-font-size:140px;
-
-line-height:.88;
-
-font-family:'Bodoni Moda',serif;
-
-margin-bottom:35px;
-
-background:
-linear-gradient(
-to right,
-#ffffff,
-#f0c06d
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-
-max-width:620px;
-
-line-height:2;
-
-font-size:17px;
-
-color:#d2d2d2;
-
-margin-bottom:50px;
-}
-
-/* BUTTONS */
-
-.hero-buttons{
-
-display:flex;
-gap:20px;
-}
-
-.btn{
-
-padding:18px 40px;
-
-border-radius:18px;
-
-text-decoration:none;
-
-font-size:14px;
-
-font-weight:700;
-
-transition:1s cubic-bezier(.19,1,.22,1);
-}
-
-.gold{
-
-background:
-linear-gradient(
-135deg,
-#f0c06d,
-#b6781d
-);
-
-color:white;
-}
-
-.glass{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(10px);
-
-color:white;
-}
-
-.btn:hover{
-
-transform:translateY(-10px);
-}
-
-/* FLOATING PRODUCT */
-
-.hero-image{
-
-position:relative;
-z-index:2;
-}
-
-.hero-image img{
-
-width:540px;
 
 filter:
-drop-shadow(0 50px 80px rgba(0,0,0,.6));
+drop-shadow(0 60px 80px rgba(0,0,0,.7));
 
 animation:float 6s ease-in-out infinite;
 }
@@ -438,102 +403,78 @@ transform:translateY(0px);
 
 }
 
-/* STRIP */
+/* SIDE WORD */
 
-.strip{
+.side-word{
 
-padding:45px 8%;
+position:absolute;
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+right:-130px;
+top:50%;
 
-border-top:1px solid rgba(255,255,255,.06);
-border-bottom:1px solid rgba(255,255,255,.06);
+transform:
+translateY(-50%)
+rotate(90deg);
+
+font-size:16px;
+
+letter-spacing:12px;
+
+color:rgba(255,255,255,.18);
 }
 
-.strip h3{
+/* EXPERIENCE */
 
-font-size:14px;
+.experience{
 
-letter-spacing:4px;
-
-color:#f0c06d;
-}
-
-/* SECTION */
-
-.section{
-
-padding:180px 8%;
-}
-
-/* TITLE */
-
-.title{
-
-margin-bottom:90px;
-}
-
-.title span{
-
-font-size:12px;
-
-letter-spacing:4px;
-
-color:#f0c06d;
-}
-
-.title h2{
-
-font-size:100px;
-
-line-height:.95;
-
-margin-top:18px;
-
-font-family:'Bodoni Moda',serif;
-}
-
-/* STORY */
-
-.story{
+padding:200px 7%;
 
 display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:80px;
+gap:100px;
 
 align-items:center;
 }
 
-.story-image{
+.exp-image{
 
 position:relative;
 }
 
-.story-image img{
+.exp-image img{
 
 width:100%;
 
 border-radius:30px;
 
-transition:1s cubic-bezier(.19,1,.22,1);
+transition:1.2s cubic-bezier(.19,1,.22,1);
 }
 
-.story-image:hover img{
+.exp-image:hover img{
 
-transform:scale(1.03);
+transform:scale(1.04);
 }
 
-.story-text p{
+.exp-text h2{
 
-font-size:18px;
+font-size:120px;
 
-line-height:2.3;
+line-height:.85;
 
-color:#d1d1d1;
+font-family:'Six Caps',sans-serif;
+
+font-weight:400;
+
+margin-bottom:35px;
+}
+
+.exp-text p{
+
+line-height:2.2;
+
+color:#bdbdbd;
 
 margin-bottom:30px;
 }
@@ -542,49 +483,62 @@ margin-bottom:30px;
 
 .features{
 
-display:flex;
-flex-direction:column;
-
-gap:50px;
+padding:0 7% 180px;
 }
 
 .feature{
 
 display:flex;
-gap:30px;
+justify-content:space-between;
 align-items:flex-start;
+
+padding:60px 0;
+
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.number{
+.feature-number{
 
-font-size:90px;
+font-size:100px;
 
-font-family:'Bodoni Moda',serif;
+font-family:'Six Caps',sans-serif;
 
-color:rgba(240,192,109,.18);
+color:rgba(217,164,65,.2);
 }
 
-.feature h3{
+.feature-content h3{
 
-font-size:42px;
+font-size:54px;
 
-margin-bottom:12px;
+font-family:'Cormorant Garamond',serif;
 
-font-family:'Bodoni Moda',serif;
+margin-bottom:14px;
 }
 
-.feature p{
+.feature-content p{
 
-color:#d2d2d2;
+max-width:500px;
 
 line-height:2;
+
+color:#bdbdbd;
 }
 
-/* PRODUCT SHOWCASE */
+/* FULLSCREEN SHOWCASE */
 
 .showcase{
 
+min-height:120vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
 text-align:center;
+
+padding:0 7%;
+
 position:relative;
 }
 
@@ -594,28 +548,20 @@ content:'';
 
 position:absolute;
 
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-width:700px;
-height:700px;
-
-border-radius:50%;
+width:900px;
+height:900px;
 
 background:
 radial-gradient(circle,
-rgba(240,192,109,.10),
+rgba(217,164,65,.12),
 transparent 70%);
 }
 
 .showcase img{
 
-width:520px;
+width:600px;
 
 position:relative;
-
 z-index:2;
 
 animation:float 6s ease-in-out infinite;
@@ -623,57 +569,77 @@ animation:float 6s ease-in-out infinite;
 
 .showcase h2{
 
-font-size:100px;
+font-size:180px;
 
-margin-top:40px;
+line-height:.8;
 
-font-family:'Bodoni Moda',serif;
+font-family:'Six Caps',sans-serif;
+
+font-weight:400;
+
+margin:40px 0 20px;
+
+position:relative;
+z-index:2;
 }
 
 .showcase p{
 
 max-width:700px;
 
-margin:30px auto;
-
 line-height:2.2;
 
-color:#d1d1d1;
+color:#bdbdbd;
+
+position:relative;
+z-index:2;
 }
 
 /* GALLERY */
 
 .gallery{
 
+padding:0 7% 180px;
+
 display:grid;
 
 grid-template-columns:
-repeat(4,1fr);
+1fr 1fr 1fr;
 
-gap:20px;
+grid-auto-rows:300px;
+
+gap:24px;
 }
 
 .gallery img{
 
 width:100%;
+height:100%;
 
-border-radius:24px;
+object-fit:cover;
 
-transition:1s cubic-bezier(.19,1,.22,1);
+border-radius:28px;
+
+transition:1.2s cubic-bezier(.19,1,.22,1);
 }
 
 .gallery img:hover{
 
 transform:
-translateY(-14px)
-scale(1.04);
+scale(1.04)
+translateY(-10px);
+}
+
+.gallery .tall{
+
+grid-row:span 2;
 }
 
 /* FOOTER */
 
 footer{
 
-padding:120px 20px;
+padding:140px 20px;
 
 text-align:center;
 
@@ -682,17 +648,24 @@ border-top:1px solid rgba(255,255,255,.06);
 
 footer h2{
 
-font-size:58px;
+font-size:120px;
 
-font-family:'Bodoni Moda',serif;
+font-family:'Six Caps',sans-serif;
+
+font-weight:400;
+
+letter-spacing:8px;
+
+color:#d9a441;
 
 margin-bottom:20px;
-
-color:#f0c06d;
 }
 
 footer p{
-color:#8f8f8f;
+
+color:#7f7f7f;
+
+letter-spacing:2px;
 }
 
 /* MOBILE */
@@ -702,48 +675,53 @@ color:#8f8f8f;
 .hero{
 
 flex-direction:column;
-justify-content:center;
 
 padding-top:180px;
 }
 
-.hero h1{
-font-size:62px;
+.hero-left h1{
+font-size:110px;
 }
 
-.hero-image img{
+.hero-right img{
 width:100%;
-margin-top:60px;
 }
 
-.hero-buttons{
-flex-direction:column;
-}
-
-.title h2,
-.showcase h2{
-font-size:52px;
-}
-
-.story{
+.experience{
 grid-template-columns:1fr;
 }
 
-.gallery{
-grid-template-columns:1fr 1fr;
+.exp-text h2{
+font-size:80px;
 }
 
-.strip{
+.showcase h2{
+font-size:100px;
+}
+
+.showcase img{
+width:100%;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.feature{
 flex-direction:column;
 gap:20px;
 }
 
+.side-word{
+display:none;
+}
+
 nav{
-padding:15px 20px;
+padding:16px 20px;
 }
 
 .logo{
-font-size:20px;
+font-size:24px;
 }
 
 }
@@ -753,23 +731,18 @@ font-size:20px;
 
 <body>
 
-<!-- CURSOR -->
-
 <div class="cursor"></div>
 
-<!-- GLOW -->
-
-<div class="glow"></div>
+<div class="bg-light"></div>
+<div class="bg-light2"></div>
 
 <!-- LOADER -->
 
 <div class="loader">
-
 <h1>TAMOOH</h1>
-
 </div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 
 <nav>
 
@@ -777,14 +750,14 @@ font-size:20px;
 TAMOOH
 </div>
 
-<div class="nav-links">
+<div class="nav-right">
 
 <a href="#">
-Products
+MENU
 </a>
 
 <a href="#">
-Experience
+ORDER
 </a>
 
 </div>
@@ -795,40 +768,38 @@ Experience
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-left">
 
-<div class="hero-tag">
-PREMIUM BIRIYANI EXPERIENCE
+<div class="mini">
+CRAFTED IN SHADOW
 </div>
 
 <h1>
-Crafted <br>
-For Luxury.
+
+TASTE <br>
+THE <br>
+LUXURY
+
 </h1>
 
 <p>
 
-An unforgettable premium flavor experience
-blended with authentic taste, modern elegance,
-and iconic presentation.
+A cinematic premium biryani experience inspired by
+luxury hospitality, rich aroma, and unforgettable flavor.
 
 </p>
 
-<div class="hero-buttons">
-
-<a href="#" class="btn gold">
-Explore Menu
-</a>
-
-<a href="#" class="btn glass">
-Order Now
+<a href="#" class="btn">
+EXPLORE EXPERIENCE
 </a>
 
 </div>
 
-</div>
+<div class="hero-right">
 
-<div class="hero-image">
+<div class="side-word">
+PREMIUM EXPERIENCE
+</div>
 
 <img src="images/product.jpg">
 
@@ -836,59 +807,41 @@ Order Now
 
 </section>
 
-<!-- STRIP -->
+<!-- EXPERIENCE -->
 
-<section class="strip">
+<section class="experience">
 
-<h3>AUTHENTIC RECIPE</h3>
-
-<h3>PREMIUM INGREDIENTS</h3>
-
-<h3>LUXURY EXPERIENCE</h3>
-
-</section>
-
-<!-- STORY -->
-
-<section class="section">
-
-<div class="title">
-
-<span>THE STORY</span>
-
-<h2>
-Taste Meets Identity
-</h2>
-
-</div>
-
-<div class="story">
-
-<div class="story-image">
+<div class="exp-image">
 
 <img src="images/poster.jpg">
 
 </div>
 
-<div class="story-text">
+<div class="exp-text">
+
+<h2>
+
+NOT <br>
+JUST <br>
+FOOD
+
+</h2>
 
 <p>
 
-TAMOOH was created to redefine premium food experiences.
+TAMOOH is designed as an experience.
 
-Every ingredient, every aroma, and every presentation
-is designed to leave a lasting impression.
+Every detail — from aroma to presentation —
+is crafted to feel cinematic, elegant, and unforgettable.
 
 </p>
 
 <p>
 
-Inspired by luxury hospitality and authentic flavor,
-TAMOOH blends elegance with unforgettable taste.
+Inspired by luxury restaurants and modern editorial design,
+TAMOOH blends bold identity with timeless flavor.
 
 </p>
-
-</div>
 
 </div>
 
@@ -896,32 +849,23 @@ TAMOOH blends elegance with unforgettable taste.
 
 <!-- FEATURES -->
 
-<section class="section">
-
-<div class="title">
-
-<span>WHY TAMOOH</span>
-
-<h2>
-Luxury In Every Detail
-</h2>
-
-</div>
-
-<div class="features">
+<section class="features">
 
 <div class="feature">
 
-<div class="number">
+<div class="feature-number">
 01
 </div>
 
-<div>
+<div class="feature-content">
 
-<h3>Rich Aroma</h3>
+<h3>Authentic Aroma</h3>
 
 <p>
-Premium spice blend crafted for unforgettable flavor.
+
+Premium spice combinations designed for deep,
+rich, unforgettable flavor identity.
+
 </p>
 
 </div>
@@ -930,16 +874,19 @@ Premium spice blend crafted for unforgettable flavor.
 
 <div class="feature">
 
-<div class="number">
+<div class="feature-number">
 02
 </div>
 
-<div>
+<div class="feature-content">
 
-<h3>Modern Identity</h3>
+<h3>Luxury Identity</h3>
 
 <p>
-Minimal luxury branding inspired by global premium brands.
+
+Minimal modern branding inspired by fashion,
+hospitality, and premium design systems.
+
 </p>
 
 </div>
@@ -948,19 +895,20 @@ Minimal luxury branding inspired by global premium brands.
 
 <div class="feature">
 
-<div class="number">
+<div class="feature-number">
 03
 </div>
 
-<div>
+<div class="feature-content">
 
-<h3>Elegant Packaging</h3>
+<h3>Cinematic Presentation</h3>
 
 <p>
-Luxury presentation designed to elevate the experience.
-</p>
 
-</div>
+Every experience is crafted to leave
+a lasting visual and emotional impression.
+
+</p>
 
 </div>
 
@@ -970,49 +918,39 @@ Luxury presentation designed to elevate the experience.
 
 <!-- SHOWCASE -->
 
-<section class="section showcase">
+<section class="showcase">
 
 <img src="images/product.jpg">
 
 <h2>
-The Signature Experience
+
+SIGNATURE <br>
+EXPERIENCE
+
 </h2>
 
 <p>
 
 Crafted for people who appreciate premium quality,
-modern aesthetics, and unforgettable authentic flavor.
+bold aesthetics, and unforgettable flavor experiences.
 
 </p>
-
-<a href="#" class="btn gold">
-Order Product
-</a>
 
 </section>
 
 <!-- GALLERY -->
 
-<section class="section">
+<section class="gallery">
 
-<div class="title">
+<img src="images/poster.jpg" class="tall">
 
-<span>INSTAGRAM</span>
-
-<h2>
-@tamooh_official
-</h2>
-
-</div>
-
-<div class="gallery">
-
-<img src="images/poster.jpg">
 <img src="images/product.jpg">
-<img src="images/offer.jpg">
-<img src="images/poster.jpg">
 
-</div>
+<img src="images/offer.jpg">
+
+<img src="images/product.jpg">
+
+<img src="images/poster.jpg">
 
 </section>
 
@@ -1025,7 +963,9 @@ TAMOOH
 </h2>
 
 <p>
-© 2026 TAMOOH. All Rights Reserved.
+
+CRAFTED TO LEAVE AN IMPRESSION
+
 </p>
 
 </footer>
@@ -1057,19 +997,7 @@ cursor.style.top=e.clientY+"px";
 
 });
 
-/* GLOW */
-
-const glow =
-document.querySelector(".glow");
-
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left=e.clientX+"px";
-glow.style.top=e.clientY+"px";
-
-});
-
 </script>
 
 </body>
-  </html>
+</html>
