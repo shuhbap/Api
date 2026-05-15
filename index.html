@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TAMOOH — Luxury Experience</title>
+<title>TAMOOH</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- BETTER PREMIUM FONTS -->
 
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -21,7 +19,6 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-scroll-behavior:smooth;
 }
 
 body{
@@ -32,71 +29,44 @@ color:white;
 font-family:'Manrope',sans-serif;
 
 overflow-x:hidden;
-cursor:none;
 }
 
-/* CURSOR */
+/* BACKGROUND */
 
-.cursor{
-
-width:14px;
-height:14px;
-
-background:#d9a441;
-
-border-radius:50%;
+.bg1{
 
 position:fixed;
 
-pointer-events:none;
+top:-200px;
+right:-200px;
 
-transform:translate(-50%,-50%);
-
-z-index:999999;
-
-mix-blend-mode:screen;
-
-box-shadow:
-0 0 25px rgba(217,164,65,.8),
-0 0 70px rgba(217,164,65,.5);
-}
-
-/* GLOW */
-
-.bg-light{
-
-position:fixed;
-
-top:-300px;
-right:-300px;
-
-width:900px;
-height:900px;
+width:500px;
+height:500px;
 
 background:
 radial-gradient(circle,
-rgba(217,164,65,.10),
+rgba(217,164,65,.15),
 transparent 70%);
 
-z-index:-2;
+z-index:-1;
 }
 
-.bg-light2{
+.bg2{
 
 position:fixed;
 
-bottom:-300px;
-left:-300px;
+bottom:-200px;
+left:-200px;
 
-width:700px;
-height:700px;
+width:400px;
+height:400px;
 
 background:
 radial-gradient(circle,
-rgba(255,255,255,.05),
+rgba(255,255,255,.06),
 transparent 70%);
 
-z-index:-2;
+z-index:-1;
 }
 
 /* LOADER */
@@ -112,42 +82,40 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-z-index:999999;
-}
+z-index:99999;
 
-.loader h1{
-
-font-size:140px;
-
-font-family:'Anton',sans-serif;
-
-letter-spacing:10px;
-
-color:#d9a441;
-
-animation:loader 2s ease;
+transition:1s;
 }
 
 .loader.hide{
 
 opacity:0;
 pointer-events:none;
-
-transition:1s;
 }
 
-@keyframes loader{
+.loader h1{
+
+font-size:70px;
+
+font-family:'Anton',sans-serif;
+
+letter-spacing:6px;
+
+color:#d9a441;
+
+animation:zoom 2s ease;
+}
+
+@keyframes zoom{
 
 0%{
+transform:scale(1.3);
 opacity:0;
-transform:scale(1.2);
-letter-spacing:30px;
 }
 
 100%{
-opacity:1;
 transform:scale(1);
-letter-spacing:10px;
+opacity:1;
 }
 
 }
@@ -158,141 +126,122 @@ nav{
 
 position:fixed;
 
-top:18px;
+top:14px;
 left:50%;
 
 transform:translateX(-50%);
 
 width:92%;
 
-padding:18px 24px;
+padding:14px 16px;
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
 backdrop-filter:blur(16px);
 
-border-radius:22px;
+border-radius:18px;
 
-z-index:9999;
+z-index:999;
 }
 
 .logo{
 
-font-size:28px;
+font-size:22px;
 
 font-family:'Anton',sans-serif;
 
-letter-spacing:4px;
+letter-spacing:3px;
 
 color:#d9a441;
 }
 
-.nav-right{
+.nav-btn{
 
-display:flex;
-gap:12px;
-}
+padding:10px 16px;
 
-.nav-right a{
+border-radius:12px;
+
+background:#d9a441;
+
+color:black;
 
 text-decoration:none;
 
-color:white;
+font-size:11px;
 
-font-size:12px;
-
-padding:14px 22px;
-
-border-radius:14px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.5s;
-}
-
-.nav-right a:hover{
-
-background:#d9a441;
-color:black;
+font-weight:700;
 }
 
 /* HERO */
 
 .hero{
 
-min-height:100vh;
+padding:
+130px 20px 70px;
 
-padding:180px 7% 100px;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-gap:60px;
-
-position:relative;
+text-align:center;
 }
 
-.hero-left{
+.tag{
 
-flex:1;
-z-index:2;
-}
+display:inline-block;
 
-.mini{
+padding:10px 18px;
 
-font-size:11px;
+border-radius:30px;
 
-letter-spacing:5px;
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+font-size:10px;
+
+letter-spacing:3px;
 
 color:#d9a441;
 
 margin-bottom:28px;
 }
 
-.hero-left h1{
+.hero h1{
 
-font-size:170px;
+font-size:28vw;
 
-line-height:.88;
+line-height:.82;
 
 font-family:'Anton',sans-serif;
 
-letter-spacing:2px;
-
-margin-bottom:30px;
+margin-bottom:24px;
 }
 
-.hero-left p{
+.hero p{
 
-max-width:520px;
+font-size:14px;
 
 line-height:2;
 
-font-size:15px;
+color:#c8c8c8;
 
-color:#bdbdbd;
-
-margin-bottom:40px;
+margin-bottom:34px;
 }
 
 /* BUTTON */
 
 .btn{
 
-display:inline-block;
+display:block;
 
-padding:18px 34px;
+width:100%;
 
-border-radius:18px;
+padding:18px 20px;
+
+border-radius:16px;
 
 background:#d9a441;
 
@@ -300,55 +249,55 @@ color:black;
 
 text-decoration:none;
 
+font-size:13px;
+
 font-weight:700;
 
-transition:.5s;
-}
-
-.btn:hover{
-
-transform:translateY(-8px);
-
-box-shadow:
-0 20px 50px rgba(217,164,65,.35);
+margin-bottom:16px;
 }
 
 /* HERO IMAGE */
 
-.hero-right{
+.hero-image{
 
-flex:1;
-
-display:flex;
-justify-content:center;
+margin-top:40px;
 
 position:relative;
 }
 
-.hero-right::before{
+.hero-image::before{
 
 content:'';
 
 position:absolute;
 
-width:600px;
-height:600px;
+width:320px;
+height:320px;
 
 background:
 radial-gradient(circle,
-rgba(217,164,65,.15),
+rgba(217,164,65,.18),
 transparent 70%);
+
+left:50%;
+top:50%;
+
+transform:
+translate(-50%,-50%);
 }
 
-.hero-right img{
+.hero-image img{
 
-width:520px;
+width:100%;
+
+max-width:330px;
 
 position:relative;
+
 z-index:2;
 
 filter:
-drop-shadow(0 50px 80px rgba(0,0,0,.7));
+drop-shadow(0 30px 60px rgba(0,0,0,.7));
 
 animation:float 6s ease-in-out infinite;
 }
@@ -360,7 +309,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-25px);
+transform:translateY(-15px);
 }
 
 100%{
@@ -369,403 +318,190 @@ transform:translateY(0px);
 
 }
 
-/* SIDE TEXT */
+/* SECTION */
 
-.side-word{
+.section{
 
-position:absolute;
-
-right:-110px;
-top:50%;
-
-transform:
-translateY(-50%)
-rotate(90deg);
-
-font-size:13px;
-
-letter-spacing:10px;
-
-color:rgba(255,255,255,.15);
+padding:90px 20px;
 }
 
-/* EXPERIENCE */
+.section-title{
 
-.experience{
-
-padding:140px 7%;
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:80px;
-
-align-items:center;
+margin-bottom:40px;
 }
 
-.exp-image img{
+.section-title span{
+
+font-size:10px;
+
+letter-spacing:3px;
+
+color:#d9a441;
+}
+
+.section-title h2{
+
+font-size:18vw;
+
+line-height:.82;
+
+margin-top:14px;
+
+font-family:'Anton',sans-serif;
+}
+
+/* STORY */
+
+.story-image img{
 
 width:100%;
 
-border-radius:28px;
+border-radius:22px;
 
-transition:1s;
+margin-bottom:30px;
 }
 
-.exp-image:hover img{
+.story-text p{
 
-transform:scale(1.03);
-}
+font-size:14px;
 
-.exp-text h2{
+line-height:2;
 
-font-size:110px;
+color:#c8c8c8;
 
-line-height:.9;
-
-font-family:'Anton',sans-serif;
-
-margin-bottom:28px;
-}
-
-.exp-text p{
-
-line-height:2.1;
-
-color:#bdbdbd;
-
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
 /* FEATURES */
 
-.features{
-
-padding:0 7% 140px;
-}
-
 .feature{
 
-display:flex;
-justify-content:space-between;
-
-padding:55px 0;
+padding:30px 0;
 
 border-bottom:1px solid rgba(255,255,255,.06);
-
-gap:40px;
 }
 
 .feature-number{
 
-font-size:90px;
+font-size:50px;
 
 font-family:'Anton',sans-serif;
 
-color:rgba(217,164,65,.15);
+color:rgba(217,164,65,.18);
+
+margin-bottom:10px;
 }
 
-.feature-content h3{
+.feature h3{
 
-font-size:42px;
+font-size:30px;
 
-margin-bottom:14px;
+margin-bottom:12px;
 
 font-family:'Anton',sans-serif;
 }
 
-.feature-content p{
+.feature p{
 
-max-width:500px;
+font-size:14px;
 
 line-height:2;
 
-color:#bdbdbd;
+color:#c8c8c8;
 }
 
 /* SHOWCASE */
 
 .showcase{
 
-min-height:100vh;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
 text-align:center;
 
-padding:100px 7%;
-
-position:relative;
-}
-
-.showcase::before{
-
-content:'';
-
-position:absolute;
-
-width:850px;
-height:850px;
-
-background:
-radial-gradient(circle,
-rgba(217,164,65,.10),
-transparent 70%);
+padding:90px 20px;
 }
 
 .showcase img{
 
-width:520px;
+width:100%;
 
-position:relative;
-z-index:2;
+max-width:330px;
+
+margin-bottom:30px;
 
 animation:float 6s ease-in-out infinite;
 }
 
 .showcase h2{
 
-font-size:150px;
+font-size:20vw;
 
-line-height:.88;
+line-height:.82;
+
+margin-bottom:20px;
 
 font-family:'Anton',sans-serif;
-
-margin:40px 0 20px;
-
-position:relative;
-z-index:2;
 }
 
 .showcase p{
 
-max-width:700px;
+font-size:14px;
 
-line-height:2.2;
+line-height:2;
 
-color:#bdbdbd;
-
-position:relative;
-z-index:2;
+color:#c8c8c8;
 }
 
 /* GALLERY */
 
 .gallery{
 
-padding:0 7% 140px;
+padding:0 20px 90px;
 
 display:grid;
 
-grid-template-columns:
-1fr 1fr 1fr;
+grid-template-columns:1fr;
 
-grid-auto-rows:260px;
-
-gap:20px;
+gap:14px;
 }
 
 .gallery img{
 
 width:100%;
-height:100%;
+height:240px;
 
 object-fit:cover;
 
-border-radius:24px;
-
-transition:1s;
-}
-
-.gallery img:hover{
-
-transform:
-translateY(-10px)
-scale(1.03);
-}
-
-.gallery .tall{
-
-grid-row:span 2;
+border-radius:20px;
 }
 
 /* FOOTER */
 
 footer{
 
-padding:120px 20px;
+padding:80px 20px;
 
 text-align:center;
-
-border-top:1px solid rgba(255,255,255,.06);
 }
 
 footer h2{
 
-font-size:90px;
+font-size:22vw;
+
+line-height:.82;
 
 font-family:'Anton',sans-serif;
 
-letter-spacing:4px;
-
 color:#d9a441;
 
-margin-bottom:18px;
+margin-bottom:14px;
 }
 
 footer p{
 
-color:#7f7f7f;
+font-size:10px;
 
 letter-spacing:2px;
 
-font-size:13px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-body{
-cursor:auto;
-}
-
-.cursor{
-display:none;
-}
-
-nav{
-
-padding:14px 16px;
-
-width:94%;
-}
-
-.logo{
-
-font-size:22px;
-}
-
-.nav-right a{
-
-padding:10px 16px;
-
-font-size:11px;
-}
-
-.hero{
-
-flex-direction:column;
-
-justify-content:center;
-
-padding:140px 7% 80px;
-
-text-align:center;
-}
-
-.hero-left h1{
-
-font-size:82px;
-
-line-height:.9;
-}
-
-.hero-left p{
-
-margin:auto auto 35px;
-}
-
-.hero-right{
-
-margin-top:40px;
-}
-
-.hero-right img{
-
-width:100%;
-max-width:360px;
-}
-
-.side-word{
-display:none;
-}
-
-.experience{
-
-grid-template-columns:1fr;
-
-gap:50px;
-
-padding:100px 7%;
-}
-
-.exp-text{
-
-text-align:center;
-}
-
-.exp-text h2{
-
-font-size:70px;
-}
-
-.feature{
-
-flex-direction:column;
-
-gap:20px;
-
-padding:40px 0;
-}
-
-.feature-number{
-
-font-size:65px;
-}
-
-.feature-content h3{
-
-font-size:30px;
-}
-
-.showcase{
-
-padding:80px 7%;
-}
-
-.showcase img{
-
-width:100%;
-max-width:360px;
-}
-
-.showcase h2{
-
-font-size:80px;
-}
-
-.gallery{
-
-grid-template-columns:1fr;
-
-grid-auto-rows:240px;
-}
-
-.gallery .tall{
-
-grid-row:auto;
-}
-
-footer h2{
-
-font-size:60px;
-}
-
+color:#8d8d8d;
 }
 
 </style>
@@ -773,15 +509,15 @@ font-size:60px;
 
 <body>
 
-<div class="cursor"></div>
-
-<div class="bg-light"></div>
-<div class="bg-light2"></div>
+<div class="bg1"></div>
+<div class="bg2"></div>
 
 <!-- LOADER -->
 
 <div class="loader">
+
 <h1>TAMOOH</h1>
+
 </div>
 
 <!-- NAVBAR -->
@@ -792,17 +528,9 @@ font-size:60px;
 TAMOOH
 </div>
 
-<div class="nav-right">
-
-<a href="#">
-MENU
-</a>
-
-<a href="#">
+<a href="#" class="nav-btn">
 ORDER
 </a>
-
-</div>
 
 </nav>
 
@@ -810,9 +538,7 @@ ORDER
 
 <section class="hero">
 
-<div class="hero-left">
-
-<div class="mini">
+<div class="tag">
 CRAFTED IN SHADOW
 </div>
 
@@ -826,8 +552,8 @@ LUXURY
 
 <p>
 
-A cinematic premium biryani experience inspired by
-luxury hospitality, rich aroma, and unforgettable flavor.
+Luxury biryani experience inspired by
+modern premium aesthetics and unforgettable flavor.
 
 </p>
 
@@ -835,13 +561,11 @@ luxury hospitality, rich aroma, and unforgettable flavor.
 EXPLORE EXPERIENCE
 </a>
 
-</div>
+<a href="#" class="btn">
+ORDER NOW
+</a>
 
-<div class="hero-right">
-
-<div class="side-word">
-PREMIUM EXPERIENCE
-</div>
+<div class="hero-image">
 
 <img src="images/product.jpg">
 
@@ -849,17 +573,13 @@ PREMIUM EXPERIENCE
 
 </section>
 
-<!-- EXPERIENCE -->
+<!-- STORY -->
 
-<section class="experience">
+<section class="section">
 
-<div class="exp-image">
+<div class="section-title">
 
-<img src="images/poster.jpg">
-
-</div>
-
-<div class="exp-text">
+<span>THE EXPERIENCE</span>
 
 <h2>
 
@@ -869,19 +589,29 @@ FOOD
 
 </h2>
 
+</div>
+
+<div class="story-image">
+
+<img src="images/poster.jpg">
+
+</div>
+
+<div class="story-text">
+
 <p>
 
-TAMOOH is designed as an experience.
+TAMOOH is designed as a cinematic food experience.
 
-Every detail — from aroma to presentation —
-is crafted to feel cinematic, elegant, and unforgettable.
+Every detail — aroma, presentation, texture —
+is crafted to feel elegant and unforgettable.
 
 </p>
 
 <p>
 
-Inspired by luxury restaurants and modern editorial design,
-TAMOOH blends bold identity with timeless flavor.
+Inspired by luxury restaurants and editorial branding,
+TAMOOH creates a bold premium identity.
 
 </p>
 
@@ -891,7 +621,7 @@ TAMOOH blends bold identity with timeless flavor.
 
 <!-- FEATURES -->
 
-<section class="features">
+<section class="section">
 
 <div class="feature">
 
@@ -899,18 +629,16 @@ TAMOOH blends bold identity with timeless flavor.
 01
 </div>
 
-<div class="feature-content">
-
-<h3>Authentic Aroma</h3>
+<h3>
+Authentic Aroma
+</h3>
 
 <p>
 
-Premium spice combinations designed for deep,
-rich, unforgettable flavor identity.
+Premium spice combinations crafted for rich,
+deep unforgettable flavor.
 
 </p>
-
-</div>
 
 </div>
 
@@ -920,18 +648,16 @@ rich, unforgettable flavor identity.
 02
 </div>
 
-<div class="feature-content">
-
-<h3>Luxury Identity</h3>
+<h3>
+Luxury Identity
+</h3>
 
 <p>
 
-Minimal modern branding inspired by fashion,
-hospitality, and premium design systems.
+Minimal premium branding inspired by
+fashion and hospitality aesthetics.
 
 </p>
-
-</div>
 
 </div>
 
@@ -941,18 +667,16 @@ hospitality, and premium design systems.
 03
 </div>
 
-<div class="feature-content">
-
-<h3>Cinematic Presentation</h3>
+<h3>
+Cinematic Taste
+</h3>
 
 <p>
 
-Every experience is crafted to leave
-a lasting visual and emotional impression.
+Every product is designed to leave
+a lasting emotional impression.
 
 </p>
-
-</div>
 
 </div>
 
@@ -974,7 +698,7 @@ EXPERIENCE
 <p>
 
 Crafted for people who appreciate premium quality,
-bold aesthetics, and unforgettable flavor experiences.
+bold visuals and unforgettable flavor.
 
 </p>
 
@@ -984,15 +708,13 @@ bold aesthetics, and unforgettable flavor experiences.
 
 <section class="gallery">
 
-<img src="images/poster.jpg" class="tall">
+<img src="images/poster.jpg">
 
 <img src="images/product.jpg">
 
 <img src="images/offer.jpg">
 
 <img src="images/product.jpg">
-
-<img src="images/poster.jpg">
 
 </section>
 
@@ -1023,23 +745,11 @@ setTimeout(()=>{
 document.querySelector(".loader")
 .classList.add("hide");
 
-},2200);
-
-});
-
-/* CURSOR */
-
-const cursor =
-document.querySelector(".cursor");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
+},1800);
 
 });
 
 </script>
 
 </body>
-  </html>
+</html>
